@@ -1,0 +1,1706 @@
+html body{margin: 0; padding: 0; font-family: sans-serif;}/*RESTABLESCO LA PAGINA, SI MARGEN EN LOS BORDES*/
+
+
+#Fondo {background-image: url(IMG/Fondo_Espacio.gif) ; color: white; background-attachment: fixed; background-repeat: no-repeat;
+background-size: 100% 120%;
+ }
+
+
+/*CONTENEDOR DE TODOS LOS CONTENEDORES*/
+
+
+.Contenedor_Supremo{width: auto; height: 100vh; overflow: hidden;} /*ESTE ES EL CONTENEDOR DONDE SE DESLIZAN TODOS LOS
+                                                                    CONTENEDOR*/
+
+/*PRIMERA SECCION------------------------------------------------------------------------------------------------------*/
+
+.Contenedor_RC {width: 7vw; height: 3vw; border-radius: 3rem; background: transparent; border: 3px solid white; position: relative;
+left: 44%; top: 4%; cursor: pointer;}
+.Recursos {width: 40%; height: 100%; border-radius: 50%; background: white; margin-left: 0%; transition: 1s;}
+
+
+
+/*PRIMERA SECCION------------------------------------------------------------------------------------------------------*/
+
+.Seccion_01{width: 100%; height: 100vh; overflow: hidden; position: relative; top: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center;}/*ESTE ES EL CONTENEDOR DE
+                                                                                            LA SECCION 01*/
+
+.Texto_Principal { /*ESTE ES EL TITULO DE IRON FIST*/
+    font-family: 'Press Start 2P', cursive; text-align: center;
+    font-size: 3.8vw;
+    text-align: center;
+    position: relative;
+    top: -12%;
+}
+
+.Nombre{ /*ESTE ES LA PREGUNTA DEBAJO DEL NOMBRE*/
+    font-family: 'Press Start 2P', cursive; text-align: center;
+    font-size: 5.9vw;
+    text-align: center;
+    position: relative;
+    top: 0%;
+    padding-bottom: 0%;
+
+}
+
+.Boton {width: 20vw; height: 4vw; background: rgb(144, 90, 196); /*Este es el boton de JUGAR*/
+cursor: pointer;font-family: 'Press Start 2P', cursive;
+color: white; border-radius: 2px; border: none;
+margin-left: auto; margin-right: auto; margin: auto; margin-top: -3%; }
+
+/*SECCION REGLAS ------------------------------------------------------------------------------------------------------*/
+
+
+
+#Reglas{position: relative; width: 100%; top: 120%;}
+
+.Titulo_Reglas{font-size: 2.4VW; position: relative; top: -20%; left: 2%; font-family: 'Press Start 2P', cursive;}
+
+.Img_reglas {margin-top: 1%; margin-left: 2%; width: 34%}
+
+.Reglas_estilos {background: rgba(248, 248, 248, 0.521); color: black; border: 0.19vw solid black; 
+width: 40%; height: auto; position: absolute;   left: 58% ; font-size: 1.14vw;}
+
+#R1 {top: -4%;}
+#R2 {top: 38%;}
+#R3_4 {top: 75%;}
+.Reglas_estilos h3  {margin-left: 3%; margin-right: 3%; text-align: center;} 
+.Reglas_estilos p  {margin-left: 3%; margin-right: 3%; text-align: center;} 
+
+.Listo {width: 34%; height: 8vh; background: rgb(100, 21, 146); display: flex; 
+align-items: center; justify-content: center; cursor: pointer; position: relative; left: 2%; top: 2vw; font-size: 1.5vw;
+font-family: 'Inconsolata', monospace;}
+
+
+
+/*SEGUNDA SECCION------------------------------------------------------------------------------------------------------*/
+
+#Seccion_2 {position: relative; top: 10%;}/*Este es el contenedor de laseccion 2*/
+
+.Titulo_historia{font-family: 'Press Start 2P', cursive; /*ESTE ES EL TITULO DE LA SEGUNDA SECCION*/
+text-align: left; font-size: 40px; position: absolute; 
+left: -100%;}
+
+.Imgane_metiorito{position: absolute; top: 210px; left: -100%; width:600px}/*ESTA ES LA IMAGEN DEL METIORITO CALLENDO A LA TIERRA*/
+
+.Contenedor_Historia{width: 40%;     /*ESTE ES EL CONENTENEDOR DE LA HISTORIA*/
+background: rgba(255, 255, 255, 0.659);
+color: black; padding-top: 2%; padding-right: 2%;
+padding-left: 2%; padding-bottom: 2%; float: right;
+position: relative; right: 100%; top: 194px;}
+
+.Boton_preparado{width: 70%; height: 6vh; /*ESTE ES EL BOTON DE LA HISTORIA*/
+background: black; display: flex; font-size: 1.2vw;
+justify-content: center; align-items: center;
+cursor: pointer; color: white; font-family: 'Inconsolata', monospace;
+ }
+
+.Contenedor_narracion {width: 9vh; height: 9vh; background: black; color: white; border-radius: 0.5rem;
+display: flex; justify-content: center; align-items: center; cursor: pointer; margin-left: 10%;}
+#VOLUMEN{font-size: 90%; }
+#PAUSE {display: none;}
+.BOTONES_2 {display: flex; align-items: center;  margin-top: 5%; height: 9vh; width: 50%; overflow: hidden;
+margin: auto;}
+
+/*TERCERA SECCION------------------------------------------------------------------------------------------------------*/
+
+
+
+.Titulo-Jugar{text-align: center; /*TITULO DE LA ULTIMA SECCION*/
+font-family: 'Press Start 2P', cursive; text-align: center;
+font-size: 60px;position: relative; top: 0%; left: -110%; padding-bottom: 2%;}
+   
+
+.Tituloar_Juego_5 {font-family: 'Press Start 2P', cursive; text-align: center; font-size: 60px;}
+
+.Contenedor_Mensaje_Star{height: 60%; width: 100%; left: 0%;  background: transparent;
+position: absolute; top: 20%; overflow: hidden; transition: 2.3s;}
+
+/*FONDO DE LA SECCION PRINCIPAL*/
+.Seccion_Juego {width: 100%; height: 160vh; 
+    background-size: cover; display: flex;
+    align-items: center; justify-content: center;
+    flex-direction: column; position: absolute; top: -12%; left: -100%;  transition: 2s;       }
+    
+    /*ESTILOS DENTRO DEL CONTENEDOR DEL JUEGO*/
+    .Contenedor {width: 900px; height: 500px; 
+    border: 5px dashed purple; 
+    background: url(IMG/Fondo.jpg) no-repeat 50% 50%; 
+    background-size: cover; position: relative; top: 4%; overflow: hidden;  }
+
+    /*CABEZARA DENTRO DEL JUEGO*/
+    .Cabezera {height: 70px; 
+    border: 5px dashed purple; 
+    background: rgba(255, 255, 255, 0.363); 
+    border-bottom: none; display: flex; 
+    align-items: center; position: relative; }
+    
+    /*Pantalla start del inicio del juego*/
+    .Start {width: 100%; height: 100%; background: rgba(0, 0, 0, 0.582);
+    position: absolute; top: 0%; z-index: 100000000000; 
+    display: flex; align-items: center; 
+    justify-content: center; flex-direction: column; 
+    color: white; text-align: center;}
+    
+    /*Boton de la pantalla start*/
+    .Play {background: purple; color: white;
+    width: 18%; height: 15%; display: flex; 
+    align-items: center; left: 0px;
+    justify-content: center; cursor: pointer;
+    position: relative;  transition: 2s; top: 18%;
+    font-family: 'Press Start 2P', cursive; margin: auto;}
+
+
+    
+    /*TITULO CENTRAL DE START*/
+    .Texo {font-size: 36px;
+    left: 0px;  transition: 2s;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 70px; margin-top: 0% ;}
+
+    .Pollo{font-family: 'Press Start 2P', cursive; margin-top: 0%;}
+    
+    #Contenedor_contador {height: 100%; 
+    display: table; position: absolute;}
+    
+    /*ESTILOS DE LOS NUMEROS DEL COTEO EN START*/
+    #RGB {font-size: 220px; position: relative; 
+    font-family: 'Press Start 2P', cursive;
+    display: table-cell; vertical-align: middle; }
+    
+    /*PANTALLA DE PAUSE*/
+    .Pausa_Pantalla {position: absolute; top: 0%; width: 100%;
+    height: 100%; background: rgba(0, 0, 0, 0.541);
+    text-align: center; z-index: 1000000000; display: none;}
+
+    .GANASTE_PANTALLA {position: absolute; width: 100%; height: 100%; background: rgba(47, 255, 57, 0.63);
+    z-index: 900; top: 0%; display: flex; justify-content: center; align-items: center; flex-direction: column; display: none;}
+
+    .GANASTE_PANTALLA h1 {font-family: 'Press Start 2P', cursive; color: rgb(10, 90, 16);
+    text-align: center; font-size: 2rem;}
+
+    .GANASTE_PANTALLA h3 {text-align: center; padding-left: 10%; padding-right: 10%; color: rgb(0, 0, 0);
+    font-family: 'Press Start 2P', cursive;}
+    
+    .PERDISTE_PANTALLA {position: absolute; width: 100%; height: 100%; background: rgba(255, 47, 47, 0.63);
+    z-index: 900; top: 0%; display: flex; justify-content: center; align-items: center; flex-direction: column; display: none;}
+
+    .PERDISTE_PANTALLA h1 {font-family: 'Press Start 2P', cursive; color: rgb(90, 10, 10);
+    text-align: center; font-size: 2rem;}
+
+    .PERDISTE_PANTALLA h3 {text-align: center; padding-left: 10%; padding-right: 10%; color: rgb(0, 0, 0);
+    font-family: 'Press Start 2P', cursive;}
+
+    #Sin_Audio {display: none; font-size: 20px; color: white;}
+
+    #Ganaste_audio {font-size: 20px; color: white;}
+
+    /*ESTILOS GENERALES DE LOS METIORITOS*/
+    .Meteiorito {cursor: pointer; display: table; 
+    position: absolute; z-index: 1000; 
+    transform-origin: center center; }
+    
+    /*ESTILOS INDIVIDUALES DE MIS DOS METIORITOS*/
+    #Meteiorito{position: absolute; top: 0px; left: -10%;  transition: 2.4s;
+    animation: Girar_Meteorito 2.6s linear infinite, Fuego_Pulso 0.5s ease-in-out infinite alternate;}
+    #Meteiorito2{position: absolute; top: 0px; left: -10%; transition: 2.4s;
+    animation: Girar_Meteorito 3.1s linear infinite, Fuego_Pulso 0.6s ease-in-out infinite alternate;}
+
+    /*Rotacion horaria para el primer meteorito*/
+@keyframes Girar_Meteorito {
+  0%   {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+/*Rotacion antihoraria para el segundo meteorito, asi no giran identicos*/
+@keyframes Girar_Meteorito_Inverso {
+  0%   {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}
+}
+
+@keyframes Fuego_Pulso {
+  0% {
+    filter: drop-shadow(0 0 4px #ff4500) drop-shadow(0 0 8px #ff8800);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #ff6600) drop-shadow(0 0 22px #ffaa00);
+  }
+}
+    
+.Destello_Impacto {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1500;
+    background: radial-gradient(circle, #fff7cc 0%, #ffcc00 35%, #ff6600 65%, rgba(255,102,0,0) 75%);
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+.Destello_Activo {
+    animation: Destello_Pop 0.4s ease-out;
+}
+
+@keyframes Destello_Pop {
+    0%   { opacity: 1;   transform: scale(0.3); }
+    60%  { opacity: 0.9; transform: scale(1.4); }
+    100% { opacity: 0;   transform: scale(1.8); }
+}
+
+#Puntaje {
+    display: inline-block;
+}
+
+.Puntaje_Pop {
+    animation: Puntaje_Pop_Anim 0.35s ease-out;
+}
+
+@keyframes Puntaje_Pop_Anim {
+    0%   { transform: scale(1);    color: #ffffff; }
+    40%  { transform: scale(1.6);  color: #ffd700; }
+    100% { transform: scale(1);    color: #ffffff; }
+}
+
+.Tiempo_Urgente {
+    color: #ff2222;
+    animation: Tiempo_Parpadeo 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes Tiempo_Parpadeo {
+    0%   { opacity: 1;   transform: scale(1); }
+    100% { opacity: 0.5; transform: scale(1.2); }
+}
+
+    /*ESTILO DEL PLANETA*/
+    .Planeta {position: absolute; top: 12%; left: 80%;
+        animation-name: rotation;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes rotation {
+      0% {
+        transform:rotate(0deg);
+      }
+      100% {
+        transform:rotate(360deg);
+      }
+    }
+    
+    /*ESTILO DEL LIMITE EN EL JUEGO*/
+    .Limite {height: 100%; width: 50px;
+    border-left: 5px dashed white; 
+    position: absolute; top: 0%; left: 70%;}
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE TIEMPO*/
+    .Tiempo {display: flex; align-items: center;
+    flex-direction: column;
+    width: 14%; height: 70%; color: black; 
+    font-size: 13px; line-height: 1vh ;  }
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE PUNTAJE*/
+    .Puntaje {display: flex; align-items: center; 
+    flex-direction: column; 
+    width: 14%; height: 70%; color: black; 
+    font-size: 13px; line-height: 1vh;  }
+    
+    /*ESTILOS DEL BOTON DE PAUSE*/
+    .Pause {width: 20%; height: 70%; font-size: 14px;
+    background: purple; display: flex;
+    align-items: center; justify-content: center;
+    color: white; cursor: pointer; position: relative;
+    left: 50%; }
+
+    .Pause_En_Pausa {background: #ff8800;}
+    
+    /*MENSAJE DENTRO DE PAUSE*/
+    .Mensaje_Pause{font-size: 50px; color: white;
+     display: table-cell; vertical-align: middle;
+      font-family: 'Press Start 2P', cursive;}
+
+.NEXT {width: 15vw; height: 3vw; background: rgb(0, 132, 255); font-size: 0.9vw; display: flex; align-items: center; justify-content: center; cursor: pointer; float: right;
+margin-left: 12%; }
+
+.Contenedor_LVL{display: flex; justify-content: center; align-items: center; width: 100%; position: relative; top: 10%;}
+.Nada {width: 45vw; height: auto; background: rgba(191, 44, 228, 0.274); border: 2px solid purple; color: white; position: relative; left: 6%;  }
+.Nada h2 {padding-left: 3%; padding-right: 3%; font-size: 1.2vw;}
+.Nada p {padding-left: 3%; padding-right: 3%;}
+
+/*RELOJ*/
+.Fecha {display: flex; width: 280px; margin-bottom: 3%;
+    height: 50px; background: rgba(191, 44, 228, 0.274);
+    justify-content: center; align-items: center;
+    }
+    
+    .Fecha p {font-size: 23px; color: white; font-family: 'Inconsolata', monospace; }
+    
+    .Hora {
+        display: flex; width: 280px; height: 100px;
+        background: rgba(191, 44, 228, 0.274);
+        align-items: center; justify-content: center;
+    }
+    
+    .Hora p {font-size: 50px; color: white; font-family: 'Inconsolata', monospace; }
+    
+    
+    #Caja_ULT {height: 100%; width: 20%; display: flex;
+    justify-content: center; align-items: center; flex-direction: column; 
+      }
+    
+    #Segundos{font-size: 40px; color: white; font-family: 'Inconsolata', monospace; }
+    
+    #AMPM {font-size: 25px; color: white; font-family: 'Inconsolata', monospace;  }
+    
+    .Contenedor_Reloj { left: 5%; 
+    }
+/*BLOQUEO DE NIVELES*/
+#NIVEL_01 {display: block;}
+#NIVEL_02 {display: none;}
+#NIVEL3 {display: none;}
+
+
+
+/*RESPONSIVE */
+@media (max-width: 1196px){
+    .Imgane_metiorito{width: 47%; top: 16vw;}
+    .Boton_preparado{width: 38%;}
+    .Titulo-Jugar {font-size: 50px;}
+    .Contenedor_Historia{top: 15vw; font-size: 1.3vw;}
+    
+}
+
+
+/*LVL 2 ---------------------------------------------------------------------------------------------------------*/
+
+
+    
+    /*ESTILOS DENTRO DEL CONTENEDOR DEL JUEGO*/
+    .Contenedorlvl2 {width: 900px; height: 500px; 
+    border: 5px dashed rgb(46, 86, 218); 
+    background: url(IMG/Fondo.jpg) no-repeat 50% 50%;
+    background-size: cover; position: relative; top: 4%; overflow: hidden;}
+    
+    /*Pantalla start del inicio del juego*/
+    .Startlvl2 {width: 100%; height: 100%; background: rgba(0, 0, 0, 0.582);
+    position: absolute; top: 0%; z-index: 100000000000; 
+    display: flex; align-items: center; 
+    justify-content: center; flex-direction: column; 
+    color: white; text-align: center;}
+    
+    /*Boton de la pantalla start*/
+    .Playlvl2 {background: rgb(0, 119, 255); color: white;
+    width: 18%; height: 9%; display: flex; 
+    align-items: center; left: 0px;
+    justify-content: center; cursor: pointer;
+    position: relative; transition: 2s; margin-top: -2%;
+    font-family: 'Press Start 2P', cursive;}
+    
+    /*TITULO CENTRAL DE START*/
+    .Texolvl2 {font-size: 36px; position: relative;
+        left: 0px; top: -15%; transition: 2s;
+        font-family: 'Press Start 2P', cursive;
+        line-height: 70px;}
+
+    #Dificultad {display: flex; 
+    justify-content: center; width: 100%;
+    position: absolute; top: 45%; left: 0px; transition: 2s;}
+    
+    #Contenedor_contadorlvl2 {height: 100%; 
+    display: table; position: absolute;}
+    
+    /*ESTILOS DE LOS NUMEROS DEL COTEO EN START*/
+    #RGBlvl2 {font-size: 220px; position: relative; 
+    font-family: 'Press Start 2P', cursive;
+    display: table-cell; vertical-align: middle; }
+    
+    /*PANTALLA DE PAUSE*/
+    .Pausa_Pantallalvl2 {position: absolute; top: 0%; width: 100%;
+    height: 100%; background: rgba(0, 0, 0, 0.541);
+    text-align: center; z-index: 1000000000; display: none;}
+    
+    .GanastePantallaLvL2 {position: absolute; width: 100%; height: 100%; background: rgba(47, 255, 57, 0.63);
+        z-index: 900; top: 0%; display: flex; justify-content: center; align-items: center; flex-direction: column; display: none;}
+    
+    .GanastePantallaLvL2 h1 {font-family: 'Press Start 2P', cursive; color: rgb(10, 90, 16);
+        text-align: center; font-size: 2rem;}
+    
+    .GanastePantallaLvL2 h3 {text-align: center; padding-left: 10%; padding-right: 10%; color: rgb(0, 0, 0);
+        font-family: 'Press Start 2P', cursive;}
+
+
+    /*ESTILOS GENERALES DE LOS METIORITOS*/
+    .Meteioritolvl2 {cursor: pointer; display: table; 
+    position: absolute; z-index: 1000; }
+    
+    /*ESTILOS INDIVIDUALES DE MIS DOS METIORITOS*/
+    #Meteioritolvl2{top: 0%; position: absolute; left: -30%; transition: 2s;}
+    #Meteiorito2lvl2{ top: 0%; position: absolute; left: -30%; transition: 2s;}
+    #Meteiorito3lvl2{top: 0%; position: absolute; left: -30%; transition: 2s;}
+    /*ESTILO DEL PLANETA*/
+    .Planetalvl2 {position: absolute; top: 12%; left: 80%;
+        animation-name: rotation;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes rotation {
+      0% {
+        transform:rotate(0deg);
+      }
+      100% {
+        transform:rotate(360deg);
+      }
+    }
+    
+    /*ESTILO DEL LIMITE EN EL JUEGO*/
+    .Limitelvl2 {height: 100%; width: 50px;
+    border-left: 5px dashed white; 
+    position: absolute; top: 0%; left: 70%;}
+    
+    /*CABEZARA DENTRO DEL JUEGO*/
+    .Cabezeralvl2 {height: 70px; 
+    border: 5px dashed rgb(0, 119, 255); 
+    background: rgba(255, 255, 255, 0.363); 
+    border-bottom: none; display: flex; 
+    align-items: center; position: relative; }
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE TIEMPO*/
+    .Tiempolvl2 {display: flex; align-items: center;
+        flex-direction: column;
+        width: 14%; height: 70%; color: black; 
+        font-size: 13px; line-height: 1vh ;   }
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE PUNTAJE*/
+    .Puntajelvl2 {display: flex; align-items: center; 
+     flex-direction: column; margin-top: 2%;
+    width: 14%; height: 100%; color: black; 
+    font-size: 13px; line-height: 7px;}
+    
+    /*ESTILOS DEL BOTON DE PAUSE*/
+    .Pauselvl2 {width: 20%; height: 70%; font-size: 14px;
+    background: rgb(0, 119, 255);; display: flex;
+    align-items: center; justify-content: center;
+    color: white; cursor: pointer; position: relative;
+    left: 50%; }
+    
+    /*MENSAJE DENTRO DE PAUSE*/
+    .Mensaje_Pauselvl2{font-size: 50px; color: white; display: table-cell; vertical-align: middle; font-family: 'Press Start 2P', cursive;}
+    
+    /*Alerta*/
+    .Perdistelvl2 {
+     color:aqua;
+     
+    }
+    .Aumentarpuntoslvl2 {
+     color: black;
+    
+    
+    }
+    
+    /*TERCER NIVEL ----------------------------------------------------------------------------------------*/
+
+
+    
+    /*ESTILOS DENTRO DEL CONTENEDOR DEL JUEGO*/
+    .Contenedorlvl3 {
+        width: 900px;
+        height: 500px; 
+        border: 5px dashed red; 
+        background: url(IMG/Fondo.jpg) no-repeat 50% 50% ;
+        background-size: cover;
+        position: relative;
+        top: 4%;
+        overflow: hidden;
+    }
+    
+    /*Pantalla start del inicio del juego*/
+    .Startlvl3 {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.582);
+        position: absolute;
+        top: 0%;
+        z-index: 100000000000; 
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: column; 
+        color: white;
+        text-align: center;
+    }
+    
+    /*Boton de la pantalla start*/
+    .Playlvl3 {
+        background: red;
+        color: white;
+        width: 18%;
+        height: 9%;
+        display: flex; 
+        align-items: center;
+        left: 0;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        transition: 2s;
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    #Dificultadlvl3{display: flex;
+    justify-content: center; width: 100%;
+    top: 49%; position: absolute; left: 0%; transition: 5s;}
+
+    /*TITULO CENTRAL DE START*/
+    .Textolvl3 {
+        font-size: 36px;
+        position: relative;
+        left: 0px; 
+        top: -7%;
+        transition: 2s;
+        font-family: 'Press Start 2P', cursive;
+        line-height: 70px;
+    }
+    
+    #Contenedor_contadorlvl3 {
+        height: 100%; 
+        display: table;
+        position: absolute;
+    }
+    
+    /*ESTILOS DE LOS NUMEROS DEL COTEO EN START*/
+    #RGBlvl3 {
+        font-size: 220px;
+        position: relative; 
+        font-family: 'Press Start 2P', cursive;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    /*PANTALLA DE PAUSE*/
+    .Pausa_Pantallalvl3 {
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.541);
+        text-align: center;
+        z-index: 1000000000;
+        display: none;
+    }
+    
+    /*ESTILOS GENERALES DE LOS METIORITOS*/
+    .Meteoritolvl3 {
+        cursor: pointer;
+        display: table; 
+        position: absolute;
+        top: 0%;
+        z-index: 1000;
+        transform-origin: center;
+        animation: GirarMeteoritolvl3 2.8s linear infinite, FuegoMeteoritolvl3 0.55s ease-in-out infinite alternate;
+    }
+
+    @keyframes GirarMeteoritolvl3 {
+        to { transform: rotate(360deg); }
+    }
+
+    @keyframes FuegoMeteoritolvl3 {
+        from { filter: drop-shadow(0 0 4px #ff4500) drop-shadow(0 0 8px #ff8800); }
+        to { filter: drop-shadow(0 0 10px #ff6600) drop-shadow(0 0 22px #ffaa00); }
+    }
+
+    .Meteoritolvl3.animacionPausadalvl3 { animation-play-state: paused; }
+
+    .DestelloImpactolvl3 {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1500;
+        background: radial-gradient(circle, #fff7cc 0%, #ffcc00 35%, #ff6600 65%, transparent 75%);
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.3);
+    }
+
+    .DestelloActivolvl3 { animation: DestelloPoplvl3 .4s ease-out; }
+
+    @keyframes DestelloPoplvl3 {
+        0% { opacity: 1; transform: translate(-50%, -50%) scale(.3); }
+        60% { opacity: .9; transform: translate(-50%, -50%) scale(1.4); }
+        100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); }
+    }
+
+    .PuntajePoplvl3 { animation: PuntajePopAnimlvl3 .35s ease-out; }
+
+    @keyframes PuntajePopAnimlvl3 {
+        0% { transform: scale(1); color: #fff; }
+        40% { transform: scale(1.6); color: #ffd700; }
+        100% { transform: scale(1); color: #fff; }
+    }
+
+    .DestelloPuntajelvl3 { animation: DestelloPuntajelvl3 .45s ease-out; }
+
+    @keyframes DestelloPuntajelvl3 {
+        40% { color: #ffd700; text-shadow: 0 0 12px #ffd700, 0 0 24px #ff9900; }
+    }
+
+    .TiempoUrgentelvl3 {
+        color: #ff2222 !important;
+        animation: TiempoParpadeolvl3 .6s ease-in-out infinite alternate;
+    }
+
+    @keyframes TiempoParpadeolvl3 {
+        to { opacity: .5; transform: scale(1.2); }
+    }
+    
+    /*ESTILOS INDIVIDUALES DE MIS TRES METIORITOS*/
+    #Meteoritolvl3{
+        top: 0%;
+        left: -10%;
+        transition: 1s;
+    }
+    
+    #Meteorito2lvl3{
+        top: 0%;
+        position: absolute;
+        left: -10%;
+        transition: 2s;
+    }
+    
+    #Meteorito3lvl3{
+        top: 0%;
+        position: absolute;
+        left: -10%;
+        transition: 3s;
+    }
+    
+    #Meteorito4lvl3{
+        top: 0%;
+        position: absolute;
+        left: -10%;
+        transition: 4s;
+    }
+    
+    
+    /*ESTILO DEL PLANETA*/
+    .Planetalvl3{
+        position: absolute;
+        top: 12%;
+        left: 80%;
+        animation-name: rotation;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .Planetalvl3.pausado{
+        animation-play-state: paused;
+    }
+    
+    @keyframes rotation {
+      0% {
+        transform:rotate(0deg);
+      }
+      100% {
+        transform:rotate(360deg);
+      }
+    }
+    
+    
+    /*ESTILO DEL LIMITE EN EL JUEGO*/
+    .Limitelvl3 {
+        height: 100%;
+        width: 50px;
+        border-left: 5px dotted white; 
+        position: absolute;
+        top: 0%;
+        left: 70%;
+    }
+    
+    /*CABEZARA DENTRO DEL JUEGO*/
+    .Cabezeralvl3 {height: 70px; 
+        border: 5px dashed red; 
+        background: rgba(255, 255, 255, 0.363); 
+        border-bottom: none; display: flex; 
+        position: relative; }
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE TIEMPO*/
+    .Tiempolvl3 {
+        display: flex; align-items: center; justify-content: center;
+        flex-direction: column;
+        width: 14%; height: 86%; color: black; 
+        font-size: 13px; line-height: 1vh ;
+    }
+    
+    /*ESTILOS DEL SPAN Y DEL TEXTO DE PUNTAJE*/
+    .Puntajelvl3 {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: column; 
+        width: 14%;
+        height: 86%;
+        color: black;
+        font-size: 13px;
+        line-height: 1vh;
+    }
+    
+    /*ESTILOS DE LA SORPRESA*/
+    .Pantalla_navelvl3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        left: -100%;
+        top: 0;
+    }
+    
+    .Pantalla_Nodrizalvl3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        left: -100%;
+        top: 32%;
+    }
+    
+    .Pantalla_nave2lvl3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        left: -100%;
+        top: 63%;
+    }
+    
+    .Ovnislvl3 {
+        width: 84px;
+        transform: rotate(90deg);
+    }
+    
+    #Nodrizalvl3 {
+        width: 140px;
+        transform: rotate(90deg);
+    }
+    
+    
+    
+    #Pantalla_creditoslvl3 {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        transition: 2s;
+    }
+    
+    #Creditoslvl3 {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: -100%;
+        font-size: 26px;
+        color: snow;
+        line-height: 8px;
+    }
+    
+    #Proximolvl3 {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        bottom: -100%;
+        font-size: 30px;
+        color: snow;
+        line-height: 5px;
+        line-height: 8px;
+    }
+    
+    #Proximolvl3 h4 {
+        font-family: 'Press Start 2P', cursive;
+        line-height: 5px;
+    }
+    
+    #Creditoslvl3 h3 {
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    #Creditoslvl3 p {
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    /*ESTILOS DEL BOTON DE PAUSE*/
+    .Pauselvl3{
+        width: 20%;
+        height: 70%;
+        font-size: 14px;
+        background: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        top: 15%;
+        left: 50%;
+    }
+
+    .Pauselvl3.PausadoLvl3 { background: #ff8800; }
+    
+    /*MENSAJE DENTRO DE PAUSE*/
+    .Mensaje_Pauselvl3{
+        font-size: 50px;
+        color: white;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: 'Press Start 2P', cursive;
+    }
+
+/* ================= MEJORAS DEL NIVEL 2 ================= */
+
+/* meteoritos: giran mientras vuelan y no se pueden arrastrar */
+.Meteioritolvl2 {user-select: none; -webkit-user-drag: none; animation: girarMeteorolvl2 1.2s linear infinite;}
+@keyframes girarMeteorolvl2 {from {transform: rotate(0deg);} to {transform: rotate(360deg);}}
+
+/* cabecera: nuevo cuadro RECORD y boton de pausa reacomodado */
+.Recordlvl2 {display: flex; align-items: center; flex-direction: column; margin-top: 2%;
+    width: 14%; height: 100%; color: black; font-size: 13px; line-height: 7px;}
+.Pauselvl2 {left: 36%;}
+
+/* marcadores con efecto */
+.Puntajelvl2 span, .Tiempolvl2 span {display: inline-block; transition: transform 0.15s, color 0.15s;}
+.Puntajelvl2 span.Poplvl2 {transform: scale(1.7); color: #0a8f1a;}
+.TiempoPocolvl2 {color: #e00000; font-weight: bold; animation: latidolvl2 0.6s ease-in-out infinite alternate;}
+@keyframes latidolvl2 {from {transform: scale(1);} to {transform: scale(1.6);}}
+
+/* linea de peligro: parpadea en rojo cuando un meteorito esta cerca */
+.Limitelvl2.Peligrolvl2 {border-left-color: #ff2d2d; animation: parpadeolvl2 0.3s ease-in-out infinite alternate;}
+@keyframes parpadeolvl2 {from {filter: none;} to {filter: drop-shadow(0 0 10px red);}}
+
+/* +1 que sube al desviar un meteorito */
+.Flotantelvl2 {position: absolute; z-index: 1500; color: #7cff6b; pointer-events: none;
+    font-family: 'Press Start 2P', cursive; font-size: 22px; text-shadow: 0 0 6px #000;
+    animation: subirlvl2 0.8s ease-out forwards;}
+@keyframes subirlvl2 {from {opacity: 1; transform: translateY(0);} to {opacity: 0; transform: translateY(-45px);}}
+
+/* temblor cuando un meteorito golpea la Tierra */
+.Impactolvl2 {animation: temblorlvl2 0.5s;}
+@keyframes temblorlvl2 {
+    0%, 100% {transform: translate(0, 0);} 20% {transform: translate(-8px, 4px);}
+    40% {transform: translate(8px, -4px);} 60% {transform: translate(-6px, 3px);}
+    80% {transform: translate(6px, -3px);}
+}
+
+/* instrucciones en la pantalla de inicio */
+.Pistalvl2 {position: absolute; bottom: 5%; left: 0; width: 100%; transition: 2s;
+    font-family: 'Press Start 2P', cursive; font-size: 11px; line-height: 22px; color: #cfe3ff;}
+
+/* pantalla de GAME OVER */
+.Perdistelvl2Pantalla {position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(120, 0, 0, 0.8); z-index: 1000000001; display: none;
+    flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    color: white; font-family: 'Press Start 2P', cursive;}
+.Perdistelvl2Pantalla h1 {font-size: 26px; line-height: 42px; margin: 0 20px 20px;}
+.Perdistelvl2Pantalla p {font-size: 13px; line-height: 26px; margin: 0 30px 26px;}
+.Reintentarlvl2 {background: rgb(0, 119, 255); color: white; border: none; cursor: pointer;
+    padding: 14px 28px; font-size: 14px; font-family: 'Press Start 2P', cursive;}
+.Reintentarlvl2:hover {background: rgb(60, 150, 255);}
+
+/* Efectos y controles compartidos entre niveles */
+.RecordCompartido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 0 0 14%;
+    height: 70%;
+    color: #111;
+    font-size: 13px;
+    line-height: 1vh;
+}
+
+.RecordCompartido h3 { margin: 0 0 8px; }
+.RecordCompartido span { font-size: 16px; }
+
+#NIVEL_01 .Cabezera .Pause,
+.Cabezeralvl2 .Pauselvl2,
+.Cabezeralvl3 .Pauselvl3 {
+    left: auto;
+    margin-left: auto;
+}
+
+.ControlEnPausaCompartido { background: #ff8800 !important; }
+.Meteoritolvl3.AnimacionCompartidaPausada,
+.Meteioritolvl2.AnimacionCompartidaPausada,
+.Meteiorito.AnimacionCompartidaPausada { animation-play-state: paused; }
+
+.AyudaNivelCompartida {
+    position: absolute;
+    bottom: 5%;
+    left: 4%;
+    width: 92%;
+    color: #eaf2ff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    line-height: 22px;
+    text-shadow: 0 2px 4px #000;
+    pointer-events: none;
+}
+
+.PuntajeUnificadoPop {
+    animation: PuntajeUnificadoPopAnim .35s ease-out;
+}
+
+@keyframes PuntajeUnificadoPopAnim {
+    0% { transform: scale(1); color: #fff; }
+    40% { transform: scale(1.55); color: #ffd700; }
+    100% { transform: scale(1); color: #fff; }
+}
+
+.PuntajeUnificadoBrillo {
+    animation: PuntajeUnificadoBrilloAnim .45s ease-out;
+}
+
+.Puntaje span, .Puntajelvl3 span { display: inline-block; }
+
+@keyframes PuntajeUnificadoBrilloAnim {
+    40% { color: #ffd700; text-shadow: 0 0 12px #ffd700, 0 0 24px #ff9900; }
+}
+
+.TiempoUrgenteCompartido {
+    color: #ff2222 !important;
+    animation: TiempoUrgenteCompartidoAnim .6s ease-in-out infinite alternate;
+}
+
+@keyframes TiempoUrgenteCompartidoAnim {
+    to { opacity: .55; transform: scale(1.18); }
+}
+
+.Meteioritolvl2 {
+    user-select: none;
+    -webkit-user-drag: none;
+    animation: girarMeteorolvl2 1.2s linear infinite, fuegoMeteorolvl2 .55s ease-in-out infinite alternate;
+}
+
+@keyframes fuegoMeteorolvl2 {
+    from { filter: drop-shadow(0 0 4px #ff4500) drop-shadow(0 0 8px #ff8800); }
+    to { filter: drop-shadow(0 0 10px #ff6600) drop-shadow(0 0 22px #ffaa00); }
+}
+
+.Meteioritolvl2.AnimacionCompartidaPausada { animation-play-state: paused; }
+.Puntajelvl2 span.Poplvl2 { color: #ffd700; text-shadow: 0 0 10px #ffae00; }
+
+.DestelloCompartido {
+    position: absolute;
+    z-index: 1500;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, #fff7cc 0%, #ffcc00 35%, #ff6600 65%, transparent 75%);
+    transform: translate(-50%, -50%) scale(.3);
+    animation: DestelloCompartidoPop .4s ease-out forwards;
+}
+
+.Limite.PeligroCompartido,
+.Limitelvl3.PeligroCompartido {
+    border-left-color: #ff2d2d;
+    animation: parpadeoPeligroCompartido .3s ease-in-out infinite alternate;
+}
+
+@keyframes parpadeoPeligroCompartido {
+    to { filter: drop-shadow(0 0 10px red); }
+}
+
+.ImpactoCompartido { animation: temblorImpactoCompartido .5s; }
+
+@keyframes temblorImpactoCompartido {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(-8px, 4px); }
+    40% { transform: translate(8px, -4px); }
+    60% { transform: translate(-6px, 3px); }
+    80% { transform: translate(6px, -3px); }
+}
+
+@keyframes DestelloCompartidoPop {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(.3); }
+    60% { opacity: .9; transform: translate(-50%, -50%) scale(1.4); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); }
+}
+
+@media (max-width: 700px) {
+    .AyudaNivelCompartida { font-size: 8px; line-height: 16px; }
+    .RecordCompartido { font-size: 9px; flex-basis: 16%; }
+    .RecordCompartido span { font-size: 12px; }
+}
+
+/* =====================================================================
+   IRON FIST - AJUSTE DE PANTALLA COMPLETA Y RESPONSIVIDAD
+   Los niveles ocupan toda la ventana y el tablero se adapta al tamaño
+   disponible. Se mantienen las clases originales para no romper la lógica.
+   ===================================================================== */
+
+html, body {
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.Contenedor_Supremo {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* El área de juego ocupa la ventana completa. */
+.Seccion_Juego {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    top: 0 !important;
+    left: -100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* El título ya no roba espacio al tablero. */
+.Tituloar_Juego_5 {
+    display: none;
+}
+
+/* Cada nivel funciona como una pantalla independiente. */
+#NIVEL_01,
+#NIVEL_02,
+#NIVEL3 {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cabeceras a todo el ancho. */
+#NIVEL_01 .Cabezera,
+#NIVEL_02 .Cabezeralvl2,
+#NIVEL3 .Cabezeralvl3 {
+    width: 100vw;
+    height: 72px;
+    min-height: 72px;
+    box-sizing: border-box;
+    top: 0;
+    margin: 0;
+}
+
+/* Tableros a todo el ancho y alto restante. */
+#NIVEL_01 > .Contenedor:not(.Cabezera),
+#NIVEL_02 > .Contenedorlvl2:not(.Cabezeralvl2),
+#NIVEL3 > .Contenedorlvl3:not(.Cabezeralvl3) {
+    width: 100vw !important;
+    height: calc(100vh - 72px) !important;
+    min-height: 0;
+    max-width: none;
+    box-sizing: border-box;
+    top: 0 !important;
+    left: 0;
+    margin: 0;
+    border-width: 3px;
+}
+
+/* Las pantallas superpuestas deben cubrir TODO el tablero. */
+#NIVEL_01 .Start,
+#NIVEL_01 .Pausa_Pantalla,
+#NIVEL_01 .GANASTE_PANTALLA,
+#NIVEL_01 .PERDISTE_PANTALLA,
+#NIVEL_02 .Startlvl2,
+#NIVEL_02 .Pausa_Pantallalvl2,
+#NIVEL_02 .GanastePantallaLvL2,
+#NIVEL_02 .Perdistelvl2Pantalla,
+#NIVEL3 .Startlvl3,
+#NIVEL3 .Pausa_Pantallalvl3,
+#NIVEL3 #Pantalla_creditoslvl3 {
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    box-sizing: border-box;
+}
+
+/* La línea de defensa se adapta al tablero. */
+#NIVEL_01 .Limite,
+#NIVEL_02 .Limitelvl2,
+#NIVEL3 .Limitelvl3 {
+    height: 100%;
+    top: 0;
+}
+
+/* El planeta se mantiene dentro de la pantalla en diferentes resoluciones. */
+#NIVEL_01 .Planeta,
+#NIVEL_02 .Planetalvl2,
+#NIVEL3 .Planetalvl3 {
+    max-width: min(400px, 32vw);
+    height: auto;
+}
+
+/* Créditos finales a pantalla completa. */
+#NIVEL3 #Creditoslvl3,
+#NIVEL3 #Proximolvl3 {
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Evita que textos grandes desborden en laptops pequeñas. */
+@media (max-width: 900px), (max-height: 650px) {
+    #NIVEL_01 .Texo,
+    #NIVEL_02 .Texolvl2,
+    #NIVEL3 .Textolvl3 {
+        font-size: clamp(20px, 4vw, 36px);
+        line-height: 1.4;
+    }
+
+    #NIVEL_01 .Planeta,
+    #NIVEL_02 .Planetalvl2,
+    #NIVEL3 .Planetalvl3 {
+        max-width: 28vw;
+    }
+
+    #NIVEL_01 .Tiempo,
+    #NIVEL_01 .Puntaje,
+    #NIVEL_02 .Tiempolvl2,
+    #NIVEL_02 .Puntajelvl2,
+    #NIVEL_02 .Recordlvl2,
+    #NIVEL3 .Tiempolvl3,
+    #NIVEL3 .Puntajelvl3 {
+        font-size: 11px;
+    }
+}
+
+/* El área inferior antigua no debe crear una segunda pantalla vacía. */
+.Contenedor_LVL {
+    box-sizing: border-box;
+}
+
+/* En pantallas táctiles no dependemos únicamente de hover. */
+@media (hover: none) {
+    .Meteiorito,
+    .Meteioritolvl2,
+    .Meteoritolvl3 {
+        touch-action: none;
+    }
+}
+
+/* HUD legible y sin barras de desplazamiento durante el juego. */
+html, body {
+    height: 100%;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#NIVEL_01 .Cabezera,
+#NIVEL_02 .Cabezeralvl2,
+#NIVEL3 .Cabezeralvl3 {
+    flex: 0 0 72px;
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 24px);
+    padding: 8px clamp(12px, 3vw, 32px);
+    background: rgba(8, 12, 30, .94);
+    color: #fff;
+    z-index: 10;
+}
+
+#NIVEL_01 .Cabezera .Tiempo,
+#NIVEL_01 .Cabezera .Puntaje,
+#NIVEL_02 .Cabezeralvl2 .Tiempolvl2,
+#NIVEL_02 .Cabezeralvl2 .Puntajelvl2,
+#NIVEL_02 .Cabezeralvl2 .Recordlvl2,
+#NIVEL3 .Cabezeralvl3 .Tiempolvl3,
+#NIVEL3 .Cabezeralvl3 .Puntajelvl3 {
+    width: auto;
+    min-width: 76px;
+    height: auto;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(11px, 1.2vw, 15px);
+    line-height: 1.35;
+    text-align: center;
+    text-shadow: 0 1px 5px #000;
+}
+
+#NIVEL_01 .Cabezera h3,
+#NIVEL_02 .Cabezeralvl2 h3,
+#NIVEL3 .Cabezeralvl3 h3 {
+    margin: 0 0 3px;
+    font-size: .85em;
+    letter-spacing: .08em;
+}
+
+#NIVEL_01 .Cabezera span,
+#NIVEL_02 .Cabezeralvl2 span,
+#NIVEL3 .Cabezeralvl3 span {
+    color: #67e8f9;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+#NIVEL_01 .Cabezera .Pause,
+#NIVEL_02 .Cabezeralvl2 .Pauselvl2,
+#NIVEL3 .Cabezeralvl3 .Pauselvl3 {
+    position: static;
+    left: auto;
+    width: auto;
+    min-width: 110px;
+    height: 42px;
+    margin-left: auto;
+    padding: 0 14px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    #NIVEL_01 .Cabezera,
+    #NIVEL_02 .Cabezeralvl2,
+    #NIVEL3 .Cabezeralvl3 {
+        gap: 6px;
+        padding: 6px 8px;
+    }
+
+    #NIVEL_01 .Cabezera .Tiempo,
+    #NIVEL_01 .Cabezera .Puntaje,
+    #NIVEL_02 .Cabezeralvl2 .Tiempolvl2,
+    #NIVEL_02 .Cabezeralvl2 .Puntajelvl2,
+    #NIVEL_02 .Cabezeralvl2 .Recordlvl2,
+    #NIVEL3 .Cabezeralvl3 .Tiempolvl3,
+    #NIVEL3 .Cabezeralvl3 .Puntajelvl3 {
+        min-width: 54px;
+        font-size: 10px;
+    }
+
+    #NIVEL_01 .Cabezera .Pause,
+    #NIVEL_02 .Cabezeralvl2 .Pauselvl2,
+    #NIVEL3 .Cabezeralvl3 .Pauselvl3 {
+        min-width: 72px;
+        height: 38px;
+        padding: 0 6px;
+        font-size: 10px;
+    }
+}
+/* La cabecera del nivel 1 permanece independiente del tablero y sus capas. */
+#NIVEL_01 > .Cabezera {
+    position: relative;
+    display: flex !important;
+    width: 100%;
+    height: 72px !important;
+    min-height: 72px;
+    overflow: visible;
+    visibility: visible !important;
+    opacity: 1 !important;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+#NIVEL_01 > .Cabezera .Tiempo,
+#NIVEL_01 > .Cabezera .Puntaje,
+#NIVEL_01 > .Cabezera .Pause {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+/* Evita que el centrado de todos los niveles empuje el nivel activo fuera de la ventana. */
+#Seccion_Juego {
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+#Seccion_Juego > #NIVEL_01,
+#Seccion_Juego > #NIVEL_02,
+#Seccion_Juego > #NIVEL3 {
+    flex: 0 0 100vh;
+}
+/* CTA de avance anclado a la ventana para que nunca quede bajo el tablero. */
+#NEXT {
+    position: fixed;
+    right: clamp(16px, 3vw, 36px);
+    bottom: clamp(16px, 3vh, 28px);
+    z-index: 1050;
+    display: none;
+    width: auto;
+    min-width: 220px;
+    min-height: 54px;
+    margin: 0;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #67e8f9;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7e22ce, #0369a1);
+    color: #fff;
+    box-shadow: 0 0 22px rgba(34, 211, 238, .55);
+    font: 700 clamp(11px, 1.2vw, 15px)/1.4 'Orbitron', sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+#NEXT h2 { margin: 0; font: inherit; }
+#NEXT:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(34, 211, 238, .8); }
+
+@media (max-width: 600px) {
+    #NEXT { right: 12px; bottom: 12px; min-width: 190px; min-height: 48px; }
+}
+/* Panel de reglas con la misma identidad neón de la portada. */
+#Reglas {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(250px, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto repeat(3, minmax(0, 1fr)) auto;
+    gap: clamp(10px, 1.5vh, 18px) clamp(16px, 2vw, 28px);
+    align-content: stretch;
+    width: 100%;
+    height: 94vh;
+    min-height: 600px;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) clamp(18px, 5vw, 72px);
+    overflow: hidden;
+    color: #f8fbff;
+    background:
+        linear-gradient(rgba(5, 5, 21, .78), rgba(5, 5, 21, .88)),
+        radial-gradient(circle at 15% 20%, rgba(176, 38, 255, .28), transparent 42%),
+        radial-gradient(circle at 85% 75%, rgba(0, 240, 255, .2), transparent 45%),
+        url("IMG/Fondo_Espacio.gif") center / cover fixed;
+    border: 1px solid rgba(0, 240, 255, .35);
+    box-shadow: inset 0 0 70px rgba(0, 240, 255, .08), 0 0 32px rgba(176, 38, 255, .2);
+}
+
+#Reglas .Titulo_Reglas {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    align-self: center;
+    margin: 0;
+    position: static;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(18px, 2vw, 30px);
+    line-height: 1.6;
+    letter-spacing: .04em;
+    color: #fff;
+    text-shadow: 0 0 8px #fff, 0 0 18px #b026ff, 0 0 34px #00f0ff;
+}
+
+#Reglas .Img_reglas {
+    grid-column: 1;
+    grid-row: 2 / 5;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    object-fit: cover;
+    border: 2px solid #00f0ff;
+    border-radius: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 0 18px rgba(0, 240, 255, .4), inset 0 0 20px rgba(0, 0, 0, .4);
+}
+
+#Reglas .Reglas_estilos {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    padding: clamp(10px, 1.5vh, 18px) clamp(12px, 1.5vw, 20px);
+    box-sizing: border-box;
+    overflow: auto;
+    color: #eafaff;
+    background: linear-gradient(135deg, rgba(15, 23, 42, .9), rgba(30, 16, 55, .82));
+    border: 1px solid rgba(0, 240, 255, .72);
+    border-left: 4px solid #b026ff;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(12px, 1vw, 15px);
+    line-height: 1.6;
+    box-shadow: 0 0 15px rgba(0, 240, 255, .12), inset 0 0 18px rgba(176, 38, 255, .08);
+    backdrop-filter: blur(8px);
+}
+
+#Reglas #R1 { grid-row: 2; }
+#Reglas #R2 { grid-row: 3; }
+#Reglas #R3_4 { grid-row: 4; }
+
+#Reglas .Reglas_estilos h3 {
+    margin: 0 0 8px;
+    color: #67e8f9;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(9px, .9vw, 12px);
+    line-height: 1.7;
+    text-align: left;
+    text-shadow: 0 0 10px rgba(0, 240, 255, .6);
+}
+
+#Reglas .Reglas_estilos p { margin: 0; text-align: left; }
+
+#Reglas .Listo {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    justify-self: end;
+    position: static;
+    width: min(320px, 48%);
+    min-height: 50px;
+    height: auto;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #00f0ff;
+    border-radius: 8px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(176, 38, 255, .78), rgba(0, 120, 180, .82));
+    box-shadow: 0 0 18px rgba(0, 240, 255, .35), inset 0 0 14px rgba(176, 38, 255, .3);
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(10px, 1vw, 13px);
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#Reglas .Listo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(0, 240, 255, .7), 0 0 36px rgba(176, 38, 255, .4);
+}
+
+@media (max-width: 700px) {
+    #Reglas {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(130px, 22vh) repeat(3, auto) auto;
+        gap: 10px;
+        height: 94vh;
+        min-height: 0;
+        padding: 16px;
+        overflow-y: auto;
+        align-content: start;
+    }
+
+    #Reglas .Titulo_Reglas { grid-column: 1; grid-row: 1; font-size: clamp(15px, 5vw, 22px); }
+    #Reglas .Img_reglas { grid-column: 1; grid-row: 2; }
+    #Reglas .Reglas_estilos { grid-column: 1; padding: 12px; }
+    #Reglas #R1 { grid-row: 3; }
+    #Reglas #R2 { grid-row: 4; }
+    #Reglas #R3_4 { grid-row: 5; }
+    #Reglas .Listo { grid-column: 1; grid-row: 6; justify-self: stretch; width: 100%; }
+}
+
+@media (max-height: 700px) and (min-width: 701px) {
+    #Reglas { min-height: 0; padding-top: 16px; padding-bottom: 16px; gap: 8px 18px; }
+    #Reglas .Titulo_Reglas { font-size: clamp(16px, 2.5vh, 22px); }
+    #Reglas .Reglas_estilos { padding: 8px 12px; font-size: 12px; }
+}
+/* Encuadre de la ilustración de reglas: mostrarla completa sin deformarla. */
+#Reglas .Img_reglas {
+    object-fit: contain;
+    object-position: center;
+    padding: 8px;
+    background: rgba(5, 5, 21, .88);
+}
+
+/* Historia posterior a las reglas, con la misma interfaz neón. */
+#Seccion_2 {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(14px, 2vw, 28px);
+    align-content: stretch;
+    width: 100%;
+    height: 94vh;
+    min-height: 600px;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) clamp(18px, 5vw, 72px);
+    overflow: hidden;
+    color: #eafaff;
+    background:
+        linear-gradient(rgba(5, 5, 21, .78), rgba(5, 5, 21, .9)),
+        radial-gradient(circle at 18% 25%, rgba(176, 38, 255, .28), transparent 42%),
+        radial-gradient(circle at 82% 76%, rgba(0, 240, 255, .2), transparent 45%),
+        url("IMG/Fondo_Espacio.gif") center / cover fixed;
+    border: 1px solid rgba(0, 240, 255, .35);
+    box-shadow: inset 0 0 70px rgba(0, 240, 255, .08), 0 0 32px rgba(176, 38, 255, .2);
+}
+
+#Seccion_2 .Titulo_historia {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: static;
+    align-self: center;
+    margin: 0;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(18px, 2vw, 30px);
+    line-height: 1.6;
+    text-shadow: 0 0 8px #fff, 0 0 18px #b026ff, 0 0 34px #00f0ff;
+}
+
+#Seccion_2 .Imgane_metiorito {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #00f0ff;
+    border-radius: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 0 18px rgba(0, 240, 255, .4);
+}
+
+#Seccion_2 .Contenedor_Historia {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    inset: auto;
+    float: none;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: clamp(18px, 2.5vw, 32px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    color: #eafaff;
+    background: linear-gradient(135deg, rgba(15, 23, 42, .92), rgba(30, 16, 55, .86));
+    border: 1px solid rgba(0, 240, 255, .72);
+    border-left: 4px solid #b026ff;
+    border-radius: 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(13px, 1.05vw, 16px);
+    line-height: 1.75;
+    box-shadow: 0 0 18px rgba(0, 240, 255, .15), inset 0 0 22px rgba(176, 38, 255, .08);
+    backdrop-filter: blur(8px);
+}
+
+#Seccion_2 .Contenedor_Historia h3 {
+    margin: 0 0 16px !important;
+    color: #67e8f9;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(10px, .95vw, 13px);
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(0, 240, 255, .55);
+}
+
+#Seccion_2 .BOTONES_2 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    height: auto;
+    margin: auto 0 0;
+    padding-top: 20px;
+    overflow: visible;
+}
+
+#Seccion_2 .Boton_preparado {
+    width: auto;
+    min-height: 48px;
+    flex: 1;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    border: 2px solid #00f0ff;
+    border-radius: 8px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(176, 38, 255, .78), rgba(0, 120, 180, .82));
+    box-shadow: 0 0 16px rgba(0, 240, 255, .3);
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(9px, .9vw, 12px);
+    text-align: center;
+}
+
+#Seccion_2 .Contenedor_narracion {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    border: 1px solid #67e8f9;
+    border-radius: 8px;
+    background: #111827;
+    box-shadow: 0 0 14px rgba(0, 240, 255, .3);
+}
+
+@media (max-width: 700px) {
+    #Seccion_2 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(130px, 22vh) minmax(0, 1fr);
+        gap: 10px;
+        height: 94vh;
+        min-height: 0;
+        padding: 16px;
+        overflow-y: auto;
+        align-content: start;
+    }
+
+    #Seccion_2 .Titulo_historia { grid-column: 1; grid-row: 1; font-size: clamp(15px, 5vw, 22px); }
+    #Seccion_2 .Imgane_metiorito { grid-column: 1; grid-row: 2; }
+    #Seccion_2 .Contenedor_Historia { grid-column: 1; grid-row: 3; padding: 16px; font-size: 13px; }
+    #Seccion_2 .BOTONES_2 { gap: 8px; }
+}
+
+@media (max-height: 700px) and (min-width: 701px) {
+    #Seccion_2 { min-height: 0; padding-top: 16px; padding-bottom: 16px; }
+    #Seccion_2 .Contenedor_Historia { padding: 16px; font-size: 13px; }
+}
+/* Control de volumen integrado al modal de opciones. */
+#menu-modal .volumen-etiqueta,
+#menu-modal .volumen-ayuda {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    color: #a5f3fc;
+    letter-spacing: .08em;
+}
+
+#menu-modal .volumen-etiqueta { margin: 0 0 12px; font-size: 12px; }
+#menu-modal .volumen-ayuda { margin-top: 10px; font-size: 10px; opacity: .75; }
+
+#menu-modal .control-volumen {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+}
+
+#menu-modal input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    height: 8px;
+    accent-color: #22d3ee;
+    cursor: pointer;
+}
+
+#menu-modal .control-volumen output {
+    min-width: 48px;
+    color: #e879f9;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-align: right;
+    text-shadow: 0 0 10px rgba(232, 121, 249, .6);
+}

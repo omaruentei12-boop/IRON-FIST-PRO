@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON FIST</title>
+    <link rel="stylesheet" href="Estilos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ====================== ESTILOS DEL MENÚ NEÓN (todo con #menu-inicio para no chocar con Estilos.css) ====================== -->
+    <style>
+        #menu-inicio { --neon-purple:#b026ff; --neon-blue:#00f0ff; position:fixed; inset:0; z-index:1000; background:#050515; color:#fff;
+            display:flex; align-items:center; justify-content:center; overflow:hidden; transition:opacity .6s ease; }
+        #menu-inicio.cerrando { opacity:0; pointer-events:none; }
+        #menu-inicio * { box-sizing:border-box; }
+        #menu-estrellas { position:absolute; inset:0; width:100%; height:100%; }
+        #menu-inicio .nebula { position:absolute; inset:0; pointer-events:none;
+            background:radial-gradient(circle at 20% 30%, rgba(176,38,255,.25) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0,240,255,.2) 0%, transparent 50%); }
+        #menu-inicio.claro .nebula { background:radial-gradient(circle at 20% 30%, rgba(255,0,127,.35) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0,240,255,.35) 0%, transparent 50%); }
+        #menu-inicio .rejilla { position:absolute; inset:0; pointer-events:none; background-size:40px 40px; animation:menuRejilla 20s linear infinite;
+            background-image:linear-gradient(rgba(0,240,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,.05) 1px, transparent 1px); }
+        @keyframes menuRejilla { to { background-position:40px 40px; } }
+        #menu-inicio .scanlines { position:absolute; inset:0; pointer-events:none; opacity:.6; background:linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,.25) 50%); background-size:100% 4px; }
+        #menu-inicio .planeta { position:absolute; bottom:-15%; right:-10%; width:50vw; height:50vw; max-width:600px; max-height:600px; border-radius:50%; pointer-events:none; opacity:.85;
+            background:radial-gradient(circle at 30% 30%, #4a00e0, #8e2de2 40%, #050515 85%); box-shadow:inset -30px -30px 60px #000, 0 0 50px rgba(142,45,226,.5); }
+        #menu-inicio .anillo { position:absolute; top:50%; left:50%; width:140%; height:20%; border:8px solid rgba(0,240,255,.4); border-radius:50%; transform:translate(-50%,-50%) rotate(-25deg); box-shadow:0 0 25px rgba(0,240,255,.6); }
+        #menu-inicio .cabecera { position:absolute; top:24px; right:24px; display:flex; align-items:center; gap:12px; z-index:3; }
+        #menu-inicio .cabecera span { font-family:'Orbitron',sans-serif; font-size:12px; letter-spacing:.2em; color:#67e8f9; }
+        #menu-inicio .interruptor { position:relative; width:56px; height:28px; display:inline-block; cursor:pointer; }
+        #menu-inicio .interruptor input { position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer; z-index:2; }
+        #menu-inicio .interruptor i { position:absolute; inset:0; border:2px solid #22d3ee; border-radius:999px; background:#111827; box-shadow:0 0 10px rgba(0,240,255,.5); transition:.25s; }
+        #menu-inicio .interruptor i::after { content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#22d3ee; transition:.25s; }
+        #menu-inicio .interruptor input:checked + i { background:#581c87; border-color:#e879f9; }
+        #menu-inicio .interruptor input:checked + i::after { transform:translateX(28px); background:#e879f9; }
+        #menu-inicio main { position:relative; z-index:3; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 16px; width:100%; }
+        #menu-inicio h1.titulo { font-family:'Press Start 2P',cursive; font-size:clamp(32px,8vw,96px); line-height:1.2; letter-spacing:.05em; margin:0 0 24px; color:#fff;
+            animation:menuPulso 2.5s infinite alternate;
+            text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 20px var(--neon-purple),0 0 40px var(--neon-purple),0 0 80px var(--neon-purple); }
+        @keyframes menuPulso { to { text-shadow:0 0 2px #fff,0 0 5px #fff,0 0 15px var(--neon-blue),0 0 30px var(--neon-blue),0 0 60px var(--neon-blue); } }
+        #menu-inicio p.sub { font-family:'Press Start 2P',cursive; font-size:clamp(10px,1.6vw,18px); color:#67e8f9; letter-spacing:2px; margin:0 0 48px; max-width:42rem;
+            text-shadow:0 0 8px rgba(0,240,255,.8),0 0 20px rgba(0,240,255,.4); }
+        #menu-inicio .botones { display:flex; flex-direction:column; gap:20px; width:100%; max-width:340px; }
+        #menu-inicio .btn { font-family:'Press Start 2P',cursive; text-transform:uppercase; letter-spacing:.1em; color:#fff; cursor:pointer; padding:16px 32px; font-size:clamp(13px,1.6vw,18px);
+            background:linear-gradient(135deg, rgba(176,38,255,.6), rgba(0,240,255,.6)); border:2px solid var(--neon-blue);
+            box-shadow:0 0 15px rgba(0,240,255,.4), inset 0 0 15px rgba(176,38,255,.4);
+            clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px); transition:all .25s ease-in-out; }
+        #menu-inicio .btn.sec { padding:12px 24px; font-size:clamp(10px,1.3vw,14px); color:#a5f3fc; opacity:.9; }
+        #menu-inicio .btn:hover { transform:scale(1.08) translateY(-2px); border-color:#fff; background:linear-gradient(135deg, rgba(176,38,255,.9), rgba(0,240,255,.9)); box-shadow:0 0 30px rgba(0,240,255,.8), 0 0 50px rgba(176,38,255,.8); }
+        #menu-inicio .btn:active { transform:scale(.98); }
+        #menu-inicio .marcador { margin-top:64px; font-family:'Orbitron',sans-serif; font-size:13px; letter-spacing:.2em; color:rgba(34,211,238,.8); display:flex; gap:24px; align-items:center; flex-wrap:wrap; justify-content:center; }
+        #menu-inicio .marcador strong { color:#e879f9; }
+        #menu-modal { position:absolute; inset:0; z-index:5; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; }
+        #menu-modal.visible { display:flex; }
+        #menu-modal .caja { background:#0f172a; border:2px solid #22d3ee; border-radius:8px; padding:28px; width:min(92%,420px); text-align:center; box-shadow:0 0 30px rgba(0,240,255,.6); }
+        #menu-modal h3 { font-family:'Press Start 2P',cursive; font-size:16px; color:#e879f9; margin:0 0 16px; }
+        #menu-modal p { font-family:'Orbitron',sans-serif; color:#a5f3fc; margin:0 0 24px; line-height:1.5; }
+        #menu-modal .btn { font-size:12px; padding:10px 24px; }
+        @media (max-width:600px) {
+            #menu-inicio { overflow-y:auto; padding:76px 0 24px; }
+            #menu-inicio .cabecera { top:18px; right:18px; gap:8px; }
+            #menu-inicio .cabecera span { font-size:10px; }
+            #menu-inicio main { padding:24px 20px; }
+            #menu-inicio h1.titulo { font-size:clamp(28px,10vw,54px); margin-bottom:22px; }
+            #menu-inicio p.sub { font-size:clamp(9px,3vw,13px); line-height:1.8; margin-bottom:32px; }
+            #menu-inicio .botones { max-width:320px; gap:14px; }
+            #menu-inicio .btn { padding:15px 18px; font-size:12px; }
+            #menu-inicio .btn.sec { padding:12px 18px; font-size:10px; }
+            #menu-inicio .marcador { margin-top:36px; gap:12px; font-size:10px; letter-spacing:.12em; }
+            #menu-inicio .planeta { width:90vw; height:90vw; right:-35vw; bottom:-24vw; opacity:.55; }
+            #menu-modal .caja { padding:24px 18px; }
+            #menu-modal h3 { font-size:13px; line-height:1.7; }
+        }
+        @media (max-height:560px) and (min-width:601px) {
+            #menu-inicio { overflow-y:auto; padding:72px 0 20px; }
+            #menu-inicio main { padding:20px 16px; }
+            #menu-inicio h1.titulo { font-size:clamp(32px,7vh,58px); margin-bottom:12px; }
+            #menu-inicio p.sub { margin-bottom:20px; }
+            #menu-inicio .botones { gap:10px; }
+            #menu-inicio .btn { padding:12px 24px; }
+            #menu-inicio .marcador { margin-top:20px; }
+        }
+        @media (prefers-reduced-motion:reduce) {
+            #menu-inicio *, #menu-inicio *::before, #menu-inicio *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+        }
+    </style>
+</head>
+<body id="Fondo">
+
+<!-- ====================== MENÚ DE INICIO (neón) ====================== -->
+<div id="menu-inicio">
+    <canvas id="menu-estrellas"></canvas>
+    <div class="nebula"></div><div class="rejilla"></div><div class="scanlines"></div>
+    <div class="planeta"><div class="anillo"></div></div>
+
+    <div class="cabecera">
+        <span>MODO NEÓN</span>
+        <label class="interruptor" title="Cambia el fondo del juego">
+            <input type="checkbox" id="menu-tema" checked><i></i>
+        </label>
+    </div>
+
+    <main>
+        <h1 class="titulo">IRON FIST</h1>
+        <p class="sub">¿LISTO PARA DEFENDER EL PLANETA?</p>
+        <div class="botones">
+            <button class="btn" id="menu-jugar" type="button">JUGAR</button>
+            <button class="btn sec" id="menu-opciones" type="button">OPCIONES</button>
+        </div>
+        <div class="marcador">
+            <span>HIGH SCORE: <strong id="menu-record">0</strong></span>
+            <span>•</span>
+            <span>CRÉDITOS: <strong>∞</strong></span>
+        </div>
+    </main>
+
+    <div id="menu-modal">
+        <div class="caja">
+            <h3 id="menu-modal-titulo"></h3>
+            <p id="menu-modal-texto"></p>
+            <button class="btn" id="menu-modal-cerrar" type="button">ACEPTAR</button>
+        </div>
+    </div>
+</div>
+
+
+<!--SECCION - CONTENEDOR GENERAL-------------------------------------------------------------->
+
+<section id="Seccion_suprema"  class="Contenedor_Supremo"> 
+
+
+
+
+<!--SECCION - 1 ------------------------------------------------------------------------------------------------------->
+
+<section class="Seccion_01" id="Seccion_01"  >
+<div class="Contenedor_RC" id="Contenedor_RC" onclick="Graficos_fondo()"><div class="Recursos" id="Recursos"></div></div>
+<h1 class="Nombre">IRON FIST</h1><h1 class="Texto_Principal">¿LISTO PARA DEFENDER<br> EL PLANETA?</h1>
+<button class="Boton" id="Juego" onclick="Mover()">JUGAR</button>
+</section>
+<!--SECCION - 3 ------------------------------------------------------------------------------------------------------->
+
+<section  id="Reglas">
+    <h1 class="Titulo_Reglas">Antes de empezar, lee<br><br>las reglas.</h1>
+    <img src="IMG/JUEGO.jpg"  class="Img_reglas">
+    <div class="Reglas_estilos" id="R1">
+        <h3>REGLA 1: PUNTAJE</h3>
+        <p>Pasa el cursor sobre cada meteorito para desviarlo y sumar 1 punto. Para ganar, alcanza la meta del nivel. El puntaje y el tiempo disponibles se muestran
+            en la parte superior de la pantalla.
+        </p>
+    </div>
+
+
+    <div class="Reglas_estilos" id="R2">
+        <h3>REGLA 2: TIEMPO</h3>
+        <p>Completa la meta antes de que el contador llegue a cero. Dispones de un tiempo determinado y se complicara a menudo que avanzas. Si se acaba el tiempo antes de alcanzar la meta, pierdes la partida.
+        </p>
+    </div>
+
+
+    <div class="Reglas_estilos" id="R3_4">
+        <h3>REGLA 3: METEORITOS</h3>
+        <p>Desvía los meteoritos antes de que alcancen la Tierra. Si uno cruza la línea de defensa, pierdes la partida.
+            Mantente atento: Pueden aparecer desde distintas direcciones y su velocidad aumenta durante el juego.
+        </p>
+    </div>
+
+<div class="Listo" onclick="Mover_2()">¿Estás listo?</div>
+
+
+</section>
+
+
+
+<!--SECCION - 4 ------------------------------------------------------------------------------------------------------->
+
+<section id="Seccion_2">
+<h1 class="Titulo_historia" id="Titulo_historia">Todo empezo cuando...</h1>
+<div class="Contenedor_Historia" id="Mensaje"><h3 style="margin-top: -1%;">CAPÍTULO I: NUESTRA SALVACIÓN</h3>
+En cierto día, las noticias de todo el mundo anunciaron que muy pronto se acercarían meteoritos de gran
+tamaño a la tierra y que solo era cuestión de horas para que comenzaran a llegar; el resultado de esto fue inmediato ya que 
+miles de personas comenzaron a alertarse y a hacer disturbios, en centros comerciales y areas publicas, para que el gobierno les
+diera alguna respuesta; pero el gobierno ya tenía un plan de contingencia, ya que ellos se habían enterado de la llegada de estos con días de antelación
+preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que consistía en los proyectiles más letales de la tierra y nuestra única salvación
+<div class="BOTONES_2"><div class="Boton_preparado" onclick="Mover_3()">¿Estas preparado? </div><div class="Contenedor_narracion" id="Contenedor_narracion">
+<i class="fas fa-play" id="VOLUMEN"></i><i class="fas fa-pause" id="PAUSE"></i></div></div>
+</div>
+<img src="IMG/Metioritos_Callendo.jpg" class="Imgane_metiorito" id="Imagen" >
+</section>
+
+<!--SECCION - 5 ------------------------------------------------------------------------------------------------------->
+
+        <!--SESCCION QUE CONTIENE TODOS LOS ELEMENTOS-->
+        <section class="Seccion_Juego" id="Seccion_Juego">
+
+            <h1 class="Tituloar_Juego_5" >¡ES HORA DE JUGAR!</h1>
+
+            <!--CABEZERA DEL JUEGO------------------------------------------------------->
+        <div id="NIVEL_01">
+            <!--Contenedor-Cabezera-->
+            <div class="Cabezera">
+            <div class="Tiempo"><h3>TIEMPO</h3><span id="Tiempo">20</span></div><!--Tiempo con su span para la el final del minuto--> 
+            <div class="Puntaje"><h3>PUNTAJE</h3><span id="Puntaje">0&nbsp;/&nbsp;15</span></div><!--Puntaje con su span que indica el puntaje-->
+            <div class="Pause" id="Pause"><h3 id="Pause_Texto">â¸ PAUSA</h3></div>
+        
+            </div>
+    
+            <!--CCMIENZO DEL JUEGO------------------------------------------------------>
+    
+            <!--Contenedor general del juego-->
+            <div class="Contenedor"> 
+            <!--EFECTOS DE SONIDO-->
+            <audio id="Perdiste_sound" src="Perdiste.mp3" preload="auto"></audio>
+            <audio id="Fondo_Ciberpunk" src="Ciberpunk.mp3" preload="auto" autoplay loop></audio>
+            <audio id="Puntos_sound" src="Puntos.mp3" preload="auto"></audio>
+            <audio id="Punto2" src="Punto2.mp3" preload="auto"></audio>
+            <audio id="Punto3" src="Punto3.mp3"preload="auto"></audio>
+            <audio id="Punto4" src="Punto4.mp3" preload="auto"></audio>
+            <audio id="narracion" src="Narracion.mp3" preload="auto"></audio>
+            <audio id="Triunfo" src="fanfare-triumphal.mp3" preload="auto"></audio>
+            <audio id="Ganaste" src="Mensaje_Ganaste.mp3" preload="auto"></audio>
+            <audio id="Musica_Final" src="Musica_Epica_Final.mp3" preload="auto"></audio>
+            <!--IMAGENES DEBTRO DE JUEGO-->
+            <img src="IMG/Metiorito.png" width="70px" class="Meteiorito" id="Meteiorito">
+            <img src="IMG/Metiorito.png" width="70px" class="Meteiorito" id="Meteiorito2">
+            <img src="IMG/planeta_tierra.png" width="400px" class="Planeta">
+            <div class="Destello_Impacto" id="Destello1"></div>
+            <div class="Destello_Impacto" id="Destello2"></div>
+            <!--Limite dentro del tablero del juego-->
+            <div class="Limite"></div>
+    
+            <!--ELEMENTOS DE START---------------------------------------------------------->
+    
+            <!--Pantalla principal al ingresar al juego START-->
+            <div class="Start" id="Start">
+            <div class="Contenedor_Mensaje_Star" id="Contenedor_Mensaje_Star">
+            <h1 class="Texo" id="Texo">¿LISTO PARA SALVAR<br> EL MUNDO? -> LVL: 1</h1> <!--Titulo de la seccion start-->
+            
+
+            <div style="display: flex; justify-content: center; position: absolute; width: 100%;">
+            <img src="IMG/Pez_Globo.gif" width="18%" id="chems1">
+            <h1 class="Pollo">Dificultad: Pez globo</h1>
+            <img src="IMG/Pez_Globo.gif" width="18%" id="chems2">
+            </div>
+
+            <br> <div class=Play id="Play">JUGAR</div><!--Boton de jugar-->
+            </div>
+            <div id="Contenedor_contador"><span id="RGB"></span></div><!--Span que contiene el conteo-->
+            </div>
+    
+            <!--PANTALLA AL PRECIONAR PAUSE---------------------------------------------->
+            <div class="Pausa_Pantalla" id="Pausa_Pantalla">
+            <h1 class="Mensaje_Pause">EL JUEGO ESTA<br> EN PAUSE</h1><!--Mensaje del juego al estar en pausa-->
+            </div>
+    
+            <!--CONTENEDOR DE AL GANAR EL JUEGO-->
+
+            <div class="GANASTE_PANTALLA" id="GANASTE_PANTALLA">
+
+                <h1>LOGRO DESBLOQUEADO: DESTRUCTOR <br> DE ASTEROIDES</h1>
+                <h3> FUE REALMENTE SORPRENDENTE COMO DEFENDISTE LA TIERRA; 
+                ESPEREMOS QUE SIGAS ASI, AHORA, QUE ESPERAS? VE POR EL SIGUIENTE NIVEL, NO TE
+                OLVIDES QUE TIENES LA OPCIÓN DE SIGUIENTE NIVEL DEBAJO DEL JUEGO</h3>
+                </div>
+
+            <div class="PERDISTE_PANTALLA" id="PERDISTE_PANTALLA">
+                <h1>LA TIERRA HA SIDO <br> IMPACTADA</h1>
+                <h3>LOS METEORITOS LOGRARON ATRAVESAR LA DEFENSA;
+                NO TE PREOCUPES, AUN HAY TIEMPO DE INTENTARLO DE NUEVO Y
+                PROTEGER EL PLANETA</h3>
+            </div>
+            </div>
+
+    
+            </div><!--FIN DEL JUEGO-->
+        </div>
+
+
+
+<section id="NIVEL_02"><!--SEGUNDO LVL------------------------------------------------------------------------>
+
+
+        <!--Contenedor-Cabezera-->
+        <div class="Cabezeralvl2 Contenedorlvl2">
+            <div class="Tiempolvl2"><h3>TIEMPO</h3><span id="Tiempolvl2">60</span></div><!--Tiempo con su span para la el final del minuto--> 
+            <div class="Puntajelvl2"><h3>PUNTAJE</h3><span id="Puntajelvl2">0 / 34</span></div><!--Puntaje con su span que indica el puntaje-->
+            <div class="Recordlvl2"><h3>RÉCORD</h3><span id="Recordlvl2">0</span></div><!--Mejor puntaje-->
+            <div class="Pauselvl2" id="Pauselvl2"><h3>⏸ PAUSA</h3></div><!--Botón de pausa-->
+        
+            </div>
+    
+            <!--CCMIENZO DEL JUEGO------------------------------------------------------>
+    
+            <!--Contenedor general del juego-->
+            <div class="Contenedorlvl2"> 
+            <!--IMAGENES DEBTRO DE JUEGO-->
+            <img src="IMG/Metiorito.png" width="70px" class="Meteioritolvl2" id="Meteioritolvl2">
+            <img src="IMG/Metiorito.png" width="70px" class="Meteioritolvl2" id="Meteiorito2lvl2">
+            <img src="IMG/Metiorito.png" width="70px" class="Meteioritolvl2" id="Meteiorito3lvl2"> 
+            <img src="IMG/planeta_tierra.png" width="400px" class="Planetalvl2">
+            <!--Limite dentro del tablero del juego-->
+            <div class="Limitelvl2"></div>
+    
+            <!--ELEMENTOS DE START---------------------------------------------------------->
+    
+            <!--Pantalla principal al ingresar al juego START-->
+            <div class="Startlvl2" id="Startlvl2">
+            <h1 class="Texolvl2" id="Texolvl2">¿LISTO PARA SALVAR<br> EL MUNDO? -> LVL: 2 </h1>
+            <div id="Dificultad">
+                <img src="IMG/Tiburon.gif" width="18%">
+                <h1 style="font-size: 27px; font-family: 'Press Start 2P', cursive;">&nbsp;Dificultad : Tiburon&nbsp;</h1>
+                <img src="IMG/Tiburon.gif" width="18%">
+            </div>
+            <!--Titulo de la seccion start-->
+            <br> <div class=Playlvl2 id="Playlvl2">JUGAR</div><!--Boton de jugar-->
+            <div class="Pistalvl2" id="Pistalvl2"></div><!--Instrucciones-->
+            <div id="Contenedor_contadorlvl2"><span id="RGBlvl2"></span></div><!--Span que contiene el conteo-->
+            </div>
+    
+    
+            <!--PANTALLA AL PRECIONAR PAUSE---------------------------------------------->
+            <div class="Pausa_Pantallalvl2" id="Pausa_Pantallalvl2">
+            <h1 class="Mensaje_Pauselvl2">EL JUEGO ESTA<br> EN PAUSE</h1><!--Mensaje del juego al estar en pausa-->
+            </div>
+
+            <div class="Perdistelvl2Pantalla" id="Perdistelvl2Pantalla">
+                <h1 id="Perdistelvl2Titulo"></h1>
+                <p id="Perdistelvl2Texto"></p>
+                <button class="Reintentarlvl2" id="Reintentarlvl2">REINTENTAR</button>
+            </div>
+
+            <div class="GanastePantallaLvL2" id="GanastePantallaLvL2">
+
+                <h1>LOGRO DESBLOQUEADO:<br> AGILIDAD EXTREMA</h1>
+                <h3>AHORA ESTAS MÁS CERCA DE COMPLETAR ESTE JUEGO, ASÍ QUE PREPARATE PARA LO PEOR, RECUERDA QUE LOS 
+                    METEORITOS NO SON ALGO PARA TOMÁRSELO A LA LIGERA Y MÁS AUN EN EL SIGUIENTE NIVEL, EN DONDE LA DIFICULTAD
+                    AUMENTA EXPONENCIALMENTE 
+                </h3>
+                <div style="display: flex; width: auto;">
+                
+
+            
+            <script src="Ejecucion2.js"></script>
+        </div>
+    
+         </div><!--FIN DEL JUEGO-->
+    </section>
+
+        <!--TERCER NIVEL ----------------------------------------------------------------------------->
+        <section id="NIVEL3" >
+
+                <!--Contenedor-Cabezera-->
+                <div class="Cabezeralvl3 Contenedorlvl3">
+                    <!--Tiempo con su span para la el final del minuto-->
+                    <div class="Tiempolvl3"><h3>TIEMPO</h3><span id="Tiempolvl3">50</span></div>
+                    <!--Puntaje con su span que indica el puntaje-->
+                    <div class="Puntajelvl3">
+                        <h3>PUNTAJE</h3>
+                        <span id="Puntajelvl3">0 / 40</span>
+                    </div>
+                    <!--Boton de pause-->
+                    <div class="Pauselvl3" id="Pauselvl3">
+                        <h3 id="TextoPausalvl3">⏸ PAUSA</h3>
+                    </div>
+                </div>
+        
+                <!--CCMIENZO DEL JUEGO------------------------------------------------------>
+        
+                <!--Contenedor general del juego-->
+                <div class="Contenedorlvl3">
+                    <!--IMAGENES DEBTRO DE JUEGO-->
+                    <img src="IMG/Metiorito.png" width="70px" class="Meteoritolvl3" id="Meteoritolvl3">
+                    <img src="IMG/Metiorito.png" width="70px" class="Meteoritolvl3" id="Meteorito2lvl3">
+                    <img src="IMG/Metiorito.png" width="70px" class="Meteoritolvl3" id="Meteorito3lvl3">
+                    <img src="IMG/Metiorito.png" width="70px" class="Meteoritolvl3" id="Meteorito4lvl3">
+                    <img src="IMG/planeta_tierra.png" width="400px" class="Planetalvl3">
+                    <div class="DestelloImpactolvl3" id="Destellolvl3_Meteoritolvl3"></div>
+                    <div class="DestelloImpactolvl3" id="Destellolvl3_Meteorito2lvl3"></div>
+                    <div class="DestelloImpactolvl3" id="Destellolvl3_Meteorito3lvl3"></div>
+                    <div class="DestelloImpactolvl3" id="Destellolvl3_Meteorito4lvl3"></div>
+        
+                    <!--Limite dentro del tablero del juego-->
+                    <div class="Limitelvl3"></div>
+        
+                    <!--ELEMENTOS DE START---------------------------------------------------------->
+        
+                    <!--Pantalla principal al ingresar al juego START-->
+                    <div class="Startlvl3" id="Startlvl3">
+                        <!--Titulo de la seccion start-->
+                        <h1 class="Textolvl3" id="Textolvl3">¿LISTO PARA SALVAR<br> EL MUNDO? -> LVL: 3</h1> <br>
+                        <!--Boton de jugar-->
+                        <div class=Playlvl3 id="Playlvl3">JUGAR</div>
+                        <!--Dificultad-->
+                        <div class="Dificultadlvl3" id="Dificultadlvl3">
+                        <img src="IMG/Megalodon.gif" width="16%">
+                        &nbsp;<h1 style="font-size: 27px; font-family: 'Press Start 2P', cursive;">
+                        Dificultad: Megalodon</h1>&nbsp;
+                        <img src="IMG/Megalodon.gif" width="16%">
+                        </div>
+                        <!--Span que contiene el conteo-->
+                        <div id="Contenedor_contadorlvl3"><span id="RGBlvl3"></span></div>
+                    </div>
+        
+                    <!--Pantalla de sorpresa-->
+                    
+                    <div class="Pantalla_navelvl3" id="Pantalla_Ovnislvl3">
+                        <img src="IMG/nave.gif" class="Ovnislvl3" id="Navelvl3">
+                        <img src="IMG/nave.gif" class="Ovnislvl3" id="Nave2lvl3">
+                    </div>
+                    <div class="Pantalla_Nodrizalvl3" id="Pantalla_Nodrizalvl3">
+                        <img src="IMG/nodriza.gif" class="Ovnislvl3" id="Nodrizalvl3">
+                    </div>
+                    <div class="Pantalla_nave2lvl3" id="Pantalla_Ovnis2lvl3">
+                        <img src="IMG/nave.gif" class="Ovnislvl3" id="Nave3lvl3">
+                        <img src="IMG/nave.gif" class="Ovnislvl3" id="Nave4lvl3">
+                    </div>
+        
+                    <!--Pantalla de créditos-->
+                    <div id="Pantalla_creditoslvl3"></div>
+                    <div id="Creditoslvl3">
+                        <h3>Desarrollado por:</h3>
+                        <p>John Carlos Huachuhuillca Quispe</p>
+                        <p>Luis Angel Hancco Poco</p>
+                        <p>Oscar Jimenez Vances</p>
+                        <p>Fatima Gutierrez Machado</p>
+                        <p>Gary Irarica Vasquez</p>
+                    </div>
+                    <div id="Proximolvl3">
+                        <h4>Próximamente:</h4>
+                        <h4>Iron Fist Pro</h4>
+                    </div>
+        
+                    <!--PANTALLA AL PRESIONAR PAUSE---------------------------------------------->
+                    <div class="Pausa_Pantallalvl3" id="Pausa_Pantallalvl3">
+                        <!--Mensaje del juego al estar en pausa-->
+                        <h1 class="Mensaje_Pauselvl3">EL JUEGO ESTA<br>EN PAUSE</h1>
+                    </div>
+                </div>
+                <script src="Ejecucion3.js"></script>
+                
+
+        </section>
+
+<div class="Contenedor_LVL">
+    
+    <div class="Contenedor_Reloj">
+        <!--Desarrollo del reloj-->
+        <div class="Fecha">
+            <p id="Dia_Semana" ></p>&nbsp;
+            <p id="dia" ></p>&nbsp;
+            <p id="mes" ></p>&nbsp; <p>del</p>&nbsp;
+            <p id="año" ></p>
+        </div>
+        
+        <!--Hora-->
+        <div class="Hora">
+            <p id="Hora"></p>&nbsp;<p>:</p>
+            <p id="Minutos"></p>&nbsp;<p>:</p>
+            <div id="Caja_ULT">
+            <span id="Segundos"></span>
+            <span id="AMPM"></span>
+            </div>
+        </div>
+        </div>
+           
+<div class="Nada" id="Nada"><h2>Una vez completes este nivel, se habilitará la opcion "SIGUIENTE".</h2><p>Recuerda que los niveles son progresivos
+    y mejorarán tu nivel de reacción ante estímulos y mucho más importante, te dará una gran sorpresa al final, así que recuerda
+    no perdértela y no parar de intentar 
+</p></div>
+<div class="NEXT" id="NEXT"><h2>SIGUIENTE NIVEL&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></h2></div>
+</div>
+
+
+    </section>
+
+</section>
+
+<!--llamado al script js-->
+<script src="JavaScript.js"></script>
+<script src="MejorasNiveles.js"></script>
+
+<!-- ====================== LÓGICA DEL MENÚ ====================== -->
+<script>
+(function () {
+    var menu = document.getElementById("menu-inicio");
+    var botonSiguiente = document.getElementById('NEXT');
+    if (botonSiguiente) document.body.appendChild(botonSiguiente);
+    var lienzo = document.getElementById("menu-estrellas");
+    var ctx = lienzo.getContext("2d");
+    var estrellas = [];
+    var animando = true;
+    var audioFondo = document.getElementById("Fondo_Ciberpunk");
+    var volumenInicial = 70;
+    try {
+        var guardado = Number(localStorage.getItem("ironfist_volumen"));
+        if (Number.isFinite(guardado) && localStorage.getItem("ironfist_volumen") !== null) volumenInicial = guardado;
+    } catch (_) {}
+
+    function aplicarVolumen(valor) {
+        var nivel = Math.max(0, Math.min(100, Number(valor) || 0));
+        Array.prototype.forEach.call(document.querySelectorAll("audio"), function (audio) {
+            audio.volume = nivel / 100;
+        });
+        try { localStorage.setItem("ironfist_volumen", String(nivel)); } catch (_) {}
+        var salida = document.getElementById("menu-volumen-valor");
+        if (salida) salida.textContent = nivel + "%";
+    }
+
+    function iniciarMusica() {
+        if (!audioFondo) return;
+        audioFondo.volume = volumenInicial / 100;
+        var reproduccion = audioFondo.play();
+        if (reproduccion && typeof reproduccion.catch === "function") reproduccion.catch(function () {});
+    }
+
+    aplicarVolumen(volumenInicial);
+    document.addEventListener("pointerdown", iniciarMusica, { once: true });
+    document.addEventListener("keydown", iniciarMusica, { once: true });
+
+    function crearEstrellas() {
+        estrellas = [];
+        for (var i = 0; i < 150; i++) {
+            estrellas.push({ x: Math.random() * lienzo.width, y: Math.random() * lienzo.height, r: Math.random() * 1.8 + 0.2,
+                color: Math.random() > 0.5 ? "#00f0ff" : "#b026ff", a: Math.random(), v: Math.random() * 0.02 + 0.005 });
+        }
+    }
+    function ajustar() { lienzo.width = window.innerWidth; lienzo.height = window.innerHeight; crearEstrellas(); }
+    function dibujar() {
+        if (!animando) return;
+        ctx.clearRect(0, 0, lienzo.width, lienzo.height);
+        estrellas.forEach(function (s) {
+            s.a += s.v; if (s.a > 1 || s.a < 0) s.v = -s.v;
+            ctx.save(); ctx.globalAlpha = Math.min(1, Math.abs(s.a));
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = s.color; ctx.shadowBlur = 8; ctx.shadowColor = s.color; ctx.fill(); ctx.restore();
+        });
+        requestAnimationFrame(dibujar);
+    }
+    window.addEventListener("resize", ajustar);
+    ajustar(); dibujar();
+
+    // El interruptor cambia el menú y también el fondo del juego (usa Graficos_fondo de JavaScript.js)
+    document.getElementById("menu-tema").addEventListener("change", function (e) {
+        menu.classList.toggle("claro", !e.target.checked);
+        if (typeof Graficos_fondo === "function") Graficos_fondo();
+    });
+
+    // High score = suma de los récords guardados de los 3 niveles
+    function leerRecord() {
+        var total = 0;
+        for (var n = 1; n <= 3; n++) {
+            try { total += parseInt(localStorage.getItem("ironfist_nivel" + n + "_record"), 10) || 0; } catch (_) {}
+        }
+        document.getElementById("menu-record").textContent = total.toLocaleString("es-PE");
+    }
+    leerRecord();
+
+    // Ventana de opciones y control de volumen
+    var modal = document.getElementById("menu-modal");
+    document.getElementById("menu-opciones").addEventListener("click", function () {
+        iniciarMusica();
+        document.getElementById("menu-modal-titulo").textContent = "OPCIONES DEL SISTEMA";
+        var textoOpciones = document.getElementById("menu-modal-texto");
+        textoOpciones.innerHTML = '<span class="volumen-etiqueta">MÚSICA Y EFECTOS</span>' +
+            '<div class="control-volumen"><input id="menu-volumen" type="range" min="0" max="100" step="1" value="' + volumenInicial + '" aria-label="Volumen de música y efectos"><output id="menu-volumen-valor">' + volumenInicial + '%</output></div>' +
+            '<span class="volumen-ayuda">Ajusta el volumen del juego</span>';
+        var controlVolumen = document.getElementById("menu-volumen");
+        controlVolumen.addEventListener("input", function () {
+            volumenInicial = Number(controlVolumen.value);
+            aplicarVolumen(volumenInicial);
+        });
+        aplicarVolumen(volumenInicial);
+        modal.classList.add("visible");
+    });
+    document.getElementById("menu-modal-cerrar").addEventListener("click", function () { modal.classList.remove("visible"); });
+    document.getElementById("menu-jugar").addEventListener("click", function () {
+        iniciarMusica();
+        document.getElementById("menu-modal-titulo").textContent = "¡INICIANDO MISIÓN!";
+        document.getElementById("menu-modal-texto").textContent = "Preparando naves de combate... ¡Buena suerte, Comandante!";
+        document.getElementById("menu-modal-cerrar").style.display = "none";
+        modal.classList.add("visible");
+        setTimeout(function () {
+            menu.classList.add("cerrando");
+            if (typeof Mover === "function") Mover(); // pasa de la portada original a las reglas
+            setTimeout(function () { animando = false; menu.style.display = "none"; }, 650);
+        }, 900);
+    });
+})();
+</script>
+
+</body>
+</html>
