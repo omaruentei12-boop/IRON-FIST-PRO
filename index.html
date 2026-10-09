@@ -85,6 +85,154 @@
         }
         @media (prefers-reduced-motion:reduce) {
             #menu-inicio *, #menu-inicio *::before, #menu-inicio *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+            #menu-inicio h1.titulo { animation:none; text-shadow:none; }
+
+            #menu-inicio .t-iron {
+                display:block; color:#fff;
+                text-shadow:0 0 4px #fff, 0 0 18px var(--neon-purple), 0 0 42px var(--neon-purple);
+            }
+            #menu-inicio .t-fist {
+                display:block;
+                background:linear-gradient(90deg, #00f0ff, #b026ff);
+                -webkit-background-clip:text; background-clip:text;
+                color:transparent; -webkit-text-fill-color:transparent;
+                filter:drop-shadow(0 0 10px rgba(0,240,255,.7));
+                animation:menuFist 2.5s ease-in-out infinite alternate;
+            }
+            @keyframes menuFist { to { filter:drop-shadow(0 0 22px rgba(176,38,255,.9)); } }
+
+            /* Subtítulo y marcador con Orbitron (si lo ves pequeño, sube el font-size) */
+            #menu-inicio p.sub {
+                font-family:'Orbitron',sans-serif; font-weight:700;
+                letter-spacing:.35em;
+                text-shadow:0 0 8px rgba(0,240,255,.6);
+            }
+
+            /* ===== MEJORA 2: BOTONES ===== */
+            #menu-inicio .btn { position:relative; overflow:hidden; }
+
+            /* Barrido de luz */
+            #menu-inicio .btn::after {
+                content:''; position:absolute; top:0; left:-120%; width:60%; height:100%;
+                background:linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent);
+                transform:skewX(-20deg); pointer-events:none;
+            }
+            #menu-inicio .btn:hover::after,
+            #menu-inicio .btn:focus-visible::after { left:140%; transition:left .6s ease; }
+
+            /* Flechita al pasar el mouse o enfocar */
+            #menu-inicio .btn::before {
+                content:'▶'; position:absolute; left:14px; top:50%;
+                transform:translateY(-50%) translateX(-8px);
+                opacity:0; font-size:.7em; color:#fff; transition:all .25s ease;
+            }
+            #menu-inicio .btn:hover::before,
+            #menu-inicio .btn:focus-visible::before { opacity:1; transform:translateY(-50%) translateX(0); }
+
+            /* JUGAR: botón principal con pulso */
+            #menu-inicio #menu-jugar {
+                padding-top:20px; padding-bottom:20px;
+                animation:menuBtnPulso 2s ease-in-out infinite;
+            }
+            @keyframes menuBtnPulso {
+                0%,100% { box-shadow:0 0 15px rgba(0,240,255,.4), inset 0 0 15px rgba(176,38,255,.4); }
+                50%     { box-shadow:0 0 32px rgba(0,240,255,.9), inset 0 0 22px rgba(176,38,255,.7); }
+            }
+            #menu-inicio #menu-jugar:hover,
+            #menu-inicio #menu-jugar:focus-visible { animation:none; }
+
+            /* OPCIONES: botón secundario, solo borde */
+            #menu-inicio .btn.sec {
+                background:transparent;
+                border-color:rgba(34,211,238,.5);
+                box-shadow:none;
+                opacity:.85;
+            }
+
+            /* Mismo efecto de hover cuando se navega con teclado */
+            #menu-inicio .btn:focus-visible {
+                outline:none; transform:scale(1.08) translateY(-2px); border-color:#fff;
+                background:linear-gradient(135deg, rgba(176,38,255,.9), rgba(0,240,255,.9));
+                box-shadow:0 0 30px rgba(0,240,255,.8), 0 0 50px rgba(176,38,255,.8);
+            }
+
+            #menu-inicio .planeta { background:none; box-shadow:none; opacity:.95;
+            filter:drop-shadow(0 0 35px rgba(142,45,226,.65)); }
+            #menu-inicio .planeta img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
+                filter:hue-rotate(80deg) saturate(1.25) brightness(.85); animation:menuGiro 180s linear infinite; }
+            /* Sombra para dar volumen (no gira, así la luz queda fija) */
+            #menu-inicio .planeta::after { content:''; position:absolute; inset:0; border-radius:50%;
+                background:radial-gradient(circle at 30% 30%, transparent 25%, rgba(5,5,21,.9) 80%); }
+            #menu-inicio .anillo { z-index:1; }
+            @keyframes menuGiro { to { transform:rotate(360deg); } }
+
+            /* Naves que cruzan la pantalla */
+            #menu-inicio .nave-cruce, #menu-inicio .ovni-cruce { position:absolute; pointer-events:none; z-index:2;
+                image-rendering:pixelated; opacity:0; }
+            #menu-inicio .nave-cruce { width:72px; top:7%; left:-120px;
+                filter:drop-shadow(0 0 12px rgba(0,240,255,.8)); animation:menuNave 16s linear infinite; }
+            #menu-inicio .ovni-cruce { width:64px; top:88%; right:-120px;
+                filter:drop-shadow(0 0 10px rgba(232,121,249,.8)); animation:menuOvni 22s linear infinite 6s; }
+            @keyframes menuNave {
+                0%   { transform:translate(0,0) rotate(90deg); opacity:0; }
+                4%   { opacity:1; }
+                30%  { transform:translate(calc(100vw + 240px),-3vh) rotate(90deg); opacity:1; }
+                34%  { opacity:0; }
+                100% { transform:translate(calc(100vw + 240px),-3vh) rotate(90deg); opacity:0; }
+            }
+            @keyframes menuOvni {
+                0%   { transform:translate(0,0); opacity:0; }
+                4%   { opacity:1; }
+                28%  { transform:translate(calc(-100vw - 240px),-5vh); opacity:1; }
+                32%  { opacity:0; }
+                100% { transform:translate(calc(-100vw - 240px),-5vh); opacity:0; }
+            }
+
+            /* Logo de Omega Games (esquina inferior izquierda) */
+            #menu-inicio .logo-omega { position:absolute; left:24px; bottom:24px; width:64px; height:auto; z-index:3;
+                border-radius:50%; opacity:.75; box-shadow:0 0 18px rgba(0,240,255,.5); transition:.3s; }
+            #menu-inicio .logo-omega:hover { opacity:1; transform:scale(1.1); box-shadow:0 0 28px rgba(176,38,255,.9); }
+
+            @media (max-width:600px) {
+                #menu-inicio .nave-cruce { width:48px; }
+                #menu-inicio .ovni-cruce { width:44px; }
+                #menu-inicio .logo-omega { width:44px; left:14px; bottom:14px; }
+            }
+            @media (prefers-reduced-motion:reduce) {
+                #menu-inicio .planeta img, #menu-inicio .nave-cruce, #menu-inicio .ovni-cruce { animation:none; }
+                #menu-inicio .nave-cruce, #menu-inicio .ovni-cruce { display:none; }
+            }
+            #menu-inicio h1.titulo { animation:menuEncender 1.6s ease-out .2s backwards; }
+            #menu-inicio p.sub     { animation:menuSubir .8s ease-out 1.2s backwards; }
+            #menu-inicio .botones  { animation:menuSubir .8s ease-out 1.6s backwards; }
+            #menu-inicio .marcador { animation:menuSubir .8s ease-out 2.1s backwards; }
+            #menu-inicio .cabecera { animation:menuSubir .8s ease-out 2.4s backwards; }
+
+            @keyframes menuSubir {
+                from { opacity:0; transform:translateY(24px); }
+                to   { opacity:1; transform:translateY(0); }
+            }
+            @keyframes menuEncender {
+                0%   { opacity:0; filter:blur(6px); }
+                8%   { opacity:1; filter:blur(0); }
+                14%  { opacity:.15; }
+                22%  { opacity:1; }
+                30%  { opacity:.3; }
+                38%  { opacity:1; }
+                46%  { opacity:.6; }
+                55%  { opacity:1; }
+                100% { opacity:1; }
+            }
+
+            /* Parallax con el mouse: el planeta y la nebulosa se desplazan un poquito (--mx y --my los pone el script) */
+            #menu-inicio .planeta { transform:translate(calc(var(--mx,0) * -16px), calc(var(--my,0) * -16px)); }
+            #menu-inicio .nebula  { transform:translate(calc(var(--mx,0) * 8px), calc(var(--my,0) * 8px)) scale(1.05); }
+
+            @media (prefers-reduced-motion:reduce) {
+                #menu-inicio h1.titulo, #menu-inicio p.sub, #menu-inicio .botones,
+                #menu-inicio .marcador, #menu-inicio .cabecera { animation:none; }
+                #menu-inicio .planeta, #menu-inicio .nebula { transform:none; }
+            }
         }
     </style>
 </head>
@@ -94,7 +242,9 @@
 <div id="menu-inicio">
     <canvas id="menu-estrellas"></canvas>
     <div class="nebula"></div><div class="rejilla"></div><div class="scanlines"></div>
-    <div class="planeta"><div class="anillo"></div></div>
+    <div class="planeta"><img src="IMG/planeta_tierra.png" alt=""><div class="anillo"></div></div>
+    <img class="nave-cruce" src="IMG/Nave_Movimiento.gif" alt="">
+    <img class="ovni-cruce" src="IMG/nave.gif" alt="">
 
     <div class="cabecera">
         <span>MODO NEÓN</span>
@@ -104,7 +254,7 @@
     </div>
 
     <main>
-        <h1 class="titulo">IRON FIST</h1>
+        <h1 class="titulo"><span class="t-iron">IRON</span><span class="t-fist">FIST</span></h1>
         <p class="sub">¿LISTO PARA DEFENDER EL PLANETA?</p>
         <div class="botones">
             <button class="btn" id="menu-jugar" type="button">JUGAR</button>
@@ -498,7 +648,41 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
         var guardado = Number(localStorage.getItem("ironfist_volumen"));
         if (Number.isFinite(guardado) && localStorage.getItem("ironfist_volumen") !== null) volumenInicial = guardado;
     } catch (_) {}
+    //Brillo
+    var brilloInicial = 100;
+    try {
+        var brilloGuardado = localStorage.getItem("ironfist_brillo");
+        if (brilloGuardado !== null && Number.isFinite(Number(brilloGuardado))) brilloInicial = Number(brilloGuardado);
+    } catch (_) {}
 
+    function aplicarBrillo(valor) {
+        var nivel = Math.max(40, Math.min(150, Number(valor) || 100));
+
+        // Crea la capa una sola vez
+        var capa = document.getElementById("capa-brillo");
+        if (!capa) {
+            capa = document.createElement("div");
+            capa.id = "capa-brillo";
+            capa.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:2147483647;transition:opacity .15s;";
+            document.body.appendChild(capa);
+        }
+
+        if (nivel < 100) {
+            // Oscurecer: capa negra (40% de brillo = 60% de oscuridad)
+            capa.style.background = "#000";
+            capa.style.opacity = String((100 - nivel) / 100);
+        } else {
+            // Aclarar: capa blanca suave (150% = 35% de blanco)
+            capa.style.background = "#fff";
+            capa.style.opacity = String(((nivel - 100) / 50) * 0.35);
+        }
+
+        try { localStorage.setItem("ironfist_brillo", String(nivel)); } catch (_) {}
+        var salida = document.getElementById("menu-brillo-valor");
+        if (salida) salida.textContent = nivel + "%";
+    }
+    
+    aplicarBrillo(brilloInicial);
     function aplicarVolumen(valor) {
         var nivel = Math.max(0, Math.min(100, Number(valor) || 0));
         Array.prototype.forEach.call(document.querySelectorAll("audio"), function (audio) {
@@ -566,12 +750,21 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
         var textoOpciones = document.getElementById("menu-modal-texto");
         textoOpciones.innerHTML = '<span class="volumen-etiqueta">MÚSICA Y EFECTOS</span>' +
             '<div class="control-volumen"><input id="menu-volumen" type="range" min="0" max="100" step="1" value="' + volumenInicial + '" aria-label="Volumen de música y efectos"><output id="menu-volumen-valor">' + volumenInicial + '%</output></div>' +
-            '<span class="volumen-ayuda">Ajusta el volumen del juego</span>';
+            '<span class="volumen-ayuda">Ajusta el volumen del juego</span>' +
+            '<span class="volumen-etiqueta" style="display:block;margin-top:22px">BRILLO</span>' +
+            '<div class="control-volumen"><input id="menu-brillo" type="range" min="40" max="150" step="5" value="' + brilloInicial + '" aria-label="Brillo de la pantalla"><output id="menu-brillo-valor">' + brilloInicial + '%</output></div>' +
+            '<span class="volumen-ayuda">100% es el brillo normal</span>';
         var controlVolumen = document.getElementById("menu-volumen");
         controlVolumen.addEventListener("input", function () {
             volumenInicial = Number(controlVolumen.value);
             aplicarVolumen(volumenInicial);
+        var controlBrillo = document.getElementById("menu-brillo");
+        controlBrillo.addEventListener("input", function () {
+            brilloInicial = Number(controlBrillo.value);
+            aplicarBrillo(brilloInicial);
         });
+        });
+        
         aplicarVolumen(volumenInicial);
         modal.classList.add("visible");
     });
@@ -588,6 +781,215 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
             setTimeout(function () { animando = false; menu.style.display = "none"; }, 650);
         }, 900);
     });
+})();
+</script>
+
+<script>
+/* Navegación del menú con flechas ↑ ↓ (Enter activa el botón enfocado) */
+(function () {
+    const menu = document.getElementById('menu-inicio');
+    const modal = document.getElementById('menu-modal');
+    if (!menu) return;
+    const botones = [document.getElementById('menu-jugar'), document.getElementById('menu-opciones')].filter(Boolean);
+
+    // JUGAR enfocado desde el inicio
+    if (botones[0]) botones[0].focus({ preventScroll: true });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+        if (!menu.isConnected || menu.classList.contains('cerrando') || menu.getClientRects().length === 0) return;
+        if (modal && modal.classList.contains('visible')) return;
+
+        e.preventDefault();
+        let i = botones.indexOf(document.activeElement);
+        if (i === -1) i = 0;
+        i = e.key === 'ArrowDown' ? (i + 1) % botones.length : (i - 1 + botones.length) % botones.length;
+        botones[i].focus();
+    });
+})();
+</script>
+
+<script>
+/* ===== BRILLO (independiente) ===== */
+(function () {
+    var CLAVE = "ironfist_brillo";
+
+    function leer() {
+        try {
+            var v = Number(localStorage.getItem(CLAVE));
+            if (localStorage.getItem(CLAVE) !== null && Number.isFinite(v)) return Math.max(40, Math.min(150, v));
+        } catch (_) {}
+        return 100;
+    }
+
+    function aplicar(nivel) {
+        nivel = Math.max(40, Math.min(150, Number(nivel) || 100));
+        var capa = document.getElementById("capa-brillo");
+        if (!capa) {
+            capa = document.createElement("div");
+            capa.id = "capa-brillo";
+            capa.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:2147483647;transition:opacity .15s;";
+            document.body.appendChild(capa);
+        }
+        if (nivel < 100) {
+            capa.style.background = "#000";
+            capa.style.opacity = String((100 - nivel) / 100);
+        } else {
+            capa.style.background = "#fff";
+            capa.style.opacity = String(((nivel - 100) / 50) * 0.35);
+        }
+        try { localStorage.setItem(CLAVE, String(nivel)); } catch (_) {}
+        var salida = document.getElementById("menu-brillo-valor");
+        if (salida) salida.textContent = nivel + "%";
+    }
+
+    // 1) Aplica el brillo guardado apenas carga el juego
+    aplicar(leer());
+
+    // 2) Escucha el slider (funciona aunque se cree después)
+    document.addEventListener("input", function (e) {
+        if (e.target && e.target.id === "menu-brillo") aplicar(e.target.value);
+    });
+
+    // 3) Cada vez que se abre OPCIONES, muestra el valor guardado
+    var modal = document.getElementById("menu-modal");
+    if (modal) {
+        new MutationObserver(function () {
+            if (!modal.classList.contains("visible")) return;
+            var slider = document.getElementById("menu-brillo");
+            if (!slider) return;
+            var guardado = leer();
+            slider.value = guardado;
+            var salida = document.getElementById("menu-brillo-valor");
+            if (salida) salida.textContent = guardado + "%";
+        }).observe(modal, { attributes: true, attributeFilter: ["class"] });
+    }
+})();
+</script>
+
+<script>
+/* ===== PASO 4: estrellas en capas (parallax) + estrellas fugaces ===== */
+(function () {
+    var menu = document.getElementById("menu-inicio");
+    var base = document.getElementById("menu-estrellas");
+    if (!menu || !base) return;
+
+    var reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Canvas nuevo, colocado detrás del tuyo (el tuyo sigue dando el parpadeo)
+    var lienzo = document.createElement("canvas");
+    lienzo.id = "menu-estrellas-fondo";
+    lienzo.style.cssText = "position:absolute;inset:0;width:100%;height:100%;pointer-events:none;";
+    menu.insertBefore(lienzo, base);
+    var ctx = lienzo.getContext("2d");
+
+    // 3 capas: lejana (pequeña y lenta), media y cercana (grande y rápida)
+    // vel = píxeles por segundo hacia la izquierda | prof = cuánto se mueve con el mouse
+    var CAPAS = [
+        { n: 90, rMin: 0.3, rMax: 0.8, vel: 4,  prof: 4,  alpha: 0.45 },
+        { n: 55, rMin: 0.6, rMax: 1.3, vel: 10, prof: 10, alpha: 0.70 },
+        { n: 25, rMin: 1.1, rMax: 2.0, vel: 22, prof: 20, alpha: 0.95 }
+    ];
+    var COLORES = ["#ffffff", "#00f0ff", "#b026ff", "#9bdcff"];
+
+    var ancho = 0, alto = 0, estrellas = [];
+    var mx = 0, my = 0, px = 0, py = 0;      // mouse objetivo y mouse suavizado (-1 a 1)
+    var fugaz = null, proxima = 0;
+    var ultimo = 0, activo = true;
+
+    function crear() {
+        var factor = Math.max(0.5, Math.min(1.5, (ancho * alto) / (1366 * 768)));
+        estrellas = [];
+        CAPAS.forEach(function (c, i) {
+            for (var k = 0; k < Math.round(c.n * factor); k++) {
+                estrellas.push({
+                    capa: i, x: Math.random() * ancho, y: Math.random() * alto,
+                    r: c.rMin + Math.random() * (c.rMax - c.rMin),
+                    color: COLORES[Math.floor(Math.random() * COLORES.length)]
+                });
+            }
+        });
+    }
+
+    function ajustar() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        ancho = window.innerWidth; alto = window.innerHeight;
+        lienzo.width = ancho * dpr; lienzo.height = alto * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        crear();
+        if (reducir) dibujar(0);
+    }
+
+    function lanzarFugaz() {
+        fugaz = {
+            x: ancho * (0.1 + Math.random() * 0.7), y: alto * Math.random() * 0.35,
+            vx: 600 + Math.random() * 300, vy: 260 + Math.random() * 160,
+            vida: 0, dur: 0.9
+        };
+    }
+
+    function dibujar(dt) {
+        ctx.clearRect(0, 0, ancho, alto);
+
+        // suaviza el movimiento del mouse y lo comparte con el CSS (planeta y nebulosa)
+        px += (mx - px) * 0.05; py += (my - py) * 0.05;
+        menu.style.setProperty("--mx", px.toFixed(3));
+        menu.style.setProperty("--my", py.toFixed(3));
+
+        estrellas.forEach(function (s) {
+            var c = CAPAS[s.capa];
+            s.x -= c.vel * dt;
+            if (s.x < -4) { s.x = ancho + 4; s.y = Math.random() * alto; }
+            ctx.globalAlpha = c.alpha;
+            ctx.fillStyle = s.color;
+            ctx.beginPath();
+            ctx.arc(s.x - px * c.prof, s.y - py * c.prof, s.r, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+
+        // estrella fugaz
+        if (fugaz) {
+            fugaz.vida += dt;
+            fugaz.x += fugaz.vx * dt; fugaz.y += fugaz.vy * dt;
+            var t = fugaz.vida / fugaz.dur;
+            if (t >= 1) { fugaz = null; }
+            else {
+                var largo = 130, mod = Math.hypot(fugaz.vx, fugaz.vy);
+                var cx = fugaz.x - (fugaz.vx / mod) * largo, cy = fugaz.y - (fugaz.vy / mod) * largo;
+                var g = ctx.createLinearGradient(cx, cy, fugaz.x, fugaz.y);
+                g.addColorStop(0, "rgba(0,240,255,0)");
+                g.addColorStop(1, "rgba(255,255,255,1)");
+                ctx.globalAlpha = Math.sin(t * Math.PI);
+                ctx.strokeStyle = g; ctx.lineWidth = 2; ctx.lineCap = "round";
+                ctx.shadowBlur = 10; ctx.shadowColor = "#00f0ff";
+                ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(fugaz.x, fugaz.y); ctx.stroke();
+                ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+            }
+        }
+    }
+
+    function bucle(ahora) {
+        // se detiene solo cuando el menú se cierra
+        if (menu.style.display === "none" || menu.classList.contains("cerrando")) { activo = false; return; }
+        var dt = Math.min(0.05, (ahora - ultimo) / 1000 || 0); ultimo = ahora;
+        if (!fugaz && ahora > proxima) { lanzarFugaz(); proxima = ahora + 3500 + Math.random() * 4500; }
+        dibujar(dt);
+        requestAnimationFrame(bucle);
+    }
+
+    window.addEventListener("resize", ajustar);
+    ajustar();
+
+    if (!reducir) {
+        menu.addEventListener("pointermove", function (e) {
+            if (e.pointerType && e.pointerType !== "mouse") return;
+            mx = (e.clientX / ancho - 0.5) * 2;
+            my = (e.clientY / alto - 0.5) * 2;
+        });
+        proxima = performance.now() + 2500;
+        requestAnimationFrame(bucle);
+    }
 })();
 </script>
 
