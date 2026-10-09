@@ -1,4 +1,3 @@
-//SI SWEETALERT2 NO CARGA (sin internet, bloqueado, etc.) USAMOS UN ALERT NORMAL, ASI EL JUEGO NO SE ROMPE
 if (typeof Swal === "undefined") {
     window.Swal = {
         fire: function (opciones) {
@@ -9,22 +8,7 @@ if (typeof Swal === "undefined") {
     };
 }
 
-Swal.fire({
-    title : '¿Preparado para salvar el mundo? <br><br> <img src="IMG/planeta_tierra.png" width = "120px"><br>',
-    html: 'IRON FIST, es un juego que mejorara tus reflejos a medida que pases de nivel, retandote cada vez mas a medida que avances y desbloqueando grandes logros al final de cada nivel, esperamos te diviertas y disfrutes de este gran juego   ',
-    icon: 'success',
-    confirmButtonText: 'ESTOY PREPARADO',
-    width: '50%',
-    timer: 100000,
-    
-    
-    timerProgressbar: true,
-    /*Funcion de cerrar la alerta*/
-    allowOutsideClick: true,
-    allowEscapeKey: false,
-    allowEnterKey: false,
-    stopKeydownPropagation: false,
-    });
+// Se eliminó la ventana blanca inicial; el menú principal funciona como pantalla de inicio.
 
 
 
@@ -99,6 +83,7 @@ function JUEGO(){
         if(Tiempo == 0){
         Tiempo = 20
         Puntaje = 0
+        document.getElementById("Puntaje").innerHTML = "0&nbsp;/&nbsp;15"
         Juego_Terminado = true
         document.getElementById("Tiempo").classList.remove("Tiempo_Urgente")
         document.getElementById("Perdiste_sound").play()
@@ -305,7 +290,8 @@ function JUEGO(){
                 document.getElementById("Meteiorito2").style.transition = "0s"
                 
                 Tiempo = 20
-                Puntaje = 0 }
+                Puntaje = 0
+                document.getElementById("Puntaje").innerHTML = "0&nbsp;/&nbsp;15" }
         
             else {
                 document.getElementById("Meteiorito").style.transition = Duracion_Meteoritos_Nivel1()
@@ -322,6 +308,7 @@ function JUEGO(){
             
             //ESTA FUNCION EJECUTA UN CONJUNTO DE ACCIONES AL PRESIONAR JUGAR
             function PLAY(){
+                document.getElementById("NIVEL_01").classList.add("conteo-solo");
                 document.getElementById("Fondo_Ciberpunk").play()
                 //MUEVE EL TITULO FUERA DEL CONTENEDOR UNA VEZ DE CLICK A JUGAR
                 document.getElementById("Texo").style.left = "-900px" 
@@ -341,7 +328,7 @@ function JUEGO(){
                         document.getElementById("Contenedor_contador").style.display = "none"
                         function Borrar(){
                         document.getElementById("Start").style.display = "none"
-
+                        document.getElementById("NIVEL_01").classList.remove("conteo-solo");
                             DETENER_JUEGO() }//HABILITA LA FUNCION DE PAUSE Y REANUDAR UNA VEZ CARGUE EL JUEGO
                         setTimeout(Borrar, 500) }  }
                         setInterval (Cuenta_rg, 1000)}
@@ -505,7 +492,7 @@ function JUEGO(){
                                 document.getElementById("Meteiorito2").style.transition = "0s"
 
                                 Tiempo = 20
-                                Puntaje = 0 }
+                                Puntaje = 0; document.getElementById("Puntaje").innerHTML = "0&nbsp;/&nbsp;15" }
 
                             else {
                                 document.getElementById("Meteiorito").style.transition = Duracion_Meteoritos_Nivel1()

@@ -1,8 +1,3 @@
-/* =====================================================================
-   IRON FIST - NIVEL 2 (version mejorada)
-   Todo el codigo del nivel esta dentro de esta funcion para que no
-   choque con los niveles 1 y 3.
-   ===================================================================== */
 (function () {
     "use strict";
 
@@ -248,6 +243,7 @@
         var numero = $("RGBlvl2");
         var n = 3;
         estado = "cuenta";
+        $("NIVEL_02").classList.add("conteo-solo");
         inicio.style.display = "flex";
         contenedor.style.display = "table";
         numero.style.fontSize = "220px";
@@ -264,6 +260,7 @@
                 setTimeout(function () {
                     contenedor.style.display = "none";
                     inicio.style.display = "none";
+                    $("NIVEL_02").classList.remove("conteo-solo");
                     alTerminar();
                 }, 600);
             }
@@ -397,9 +394,7 @@
         $("Pauselvl2").addEventListener("click", alternarPausa);
         $("Reintentarlvl2").addEventListener("click", reintentar);
 
-        document.addEventListener("keydown", function (e) {
-            if ((e.key === "p" || e.key === "P") && nivelVisible()) alternarPausa();
-        });
+        // La tecla P se gestiona desde el controlador global de index.html para evitar dobles activaciones.
         // si cambias de pestana, el juego se pausa solo
         document.addEventListener("visibilitychange", function () {
             if (document.hidden && estado === "jugando") alternarPausa();

@@ -1704,3 +1704,221 @@ body::-webkit-scrollbar {
     text-align: right;
     text-shadow: 0 0 10px rgba(232, 121, 249, .6);
 }
+/* IRON FIST — interfaz espacial renovada para las pantallas de inicio de nivel */
+.Contenedor,
+.Contenedorlvl2,
+.Contenedorlvl3 {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 0 1px rgba(77, 224, 255, .18),
+                inset 0 0 45px rgba(0, 12, 42, .45),
+                0 0 28px rgba(32, 110, 255, .12);
+    background-image: linear-gradient(135deg, rgba(3, 8, 28, .18), rgba(7, 15, 44, .28)), url('IMG/Fondo_Espacio2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.Cabezera,
+.Cabezeralvl2 {
+    border: 0 !important;
+    border-bottom: 1px solid rgba(83, 220, 255, .3) !important;
+    background: linear-gradient(90deg, rgba(5, 14, 40, .94), rgba(20, 18, 64, .86)) !important;
+    box-shadow: 0 5px 24px rgba(0, 0, 0, .22);
+}
+.Start,
+.Startlvl2,
+.Startlvl3 {
+    background: radial-gradient(ellipse at center, rgba(13, 35, 82, .76), rgba(2, 5, 20, .91) 72%),
+                url('IMG/Fondo_Espacio2.jpg') center / cover !important;
+    backdrop-filter: blur(3px);
+    padding: clamp(16px, 3vw, 42px);
+    box-sizing: border-box;
+}
+.Contenedor_Mensaje_Star {
+    top: 14% !important;
+    height: 72% !important;
+    width: min(92%, 980px) !important;
+    left: 4% !important;
+    padding: clamp(18px, 3vw, 40px) !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2vh, 24px);
+    background: linear-gradient(145deg, rgba(8, 18, 48, .76), rgba(19, 9, 47, .7)) !important;
+    border: 0 !important;
+    border-radius: 24px;
+    box-shadow: inset 0 0 35px rgba(50, 195, 255, .08), 0 18px 60px rgba(0, 0, 0, .35);
+}
+.Texo, .Texolvl2, .Textolvl3 {
+    color: #f4fbff !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: clamp(22px, 3.2vw, 42px) !important;
+    line-height: 1.35 !important;
+    letter-spacing: .04em;
+    text-shadow: 0 0 12px rgba(64, 218, 255, .7), 0 0 34px rgba(93, 73, 255, .45);
+    text-align: center;
+    max-width: 100%;
+}
+.Pollo,
+#Dificultad h1,
+#Dificultadlvl3 h1 {
+    color: #a9eaff !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: clamp(14px, 1.7vw, 22px) !important;
+    text-shadow: 0 0 14px rgba(44, 190, 255, .45);
+}
+.Play, .Playlvl2, .Playlvl3 {
+    width: auto !important;
+    min-width: 190px;
+    min-height: 54px;
+    height: auto !important;
+    padding: 15px 28px;
+    margin: 16px auto !important;
+    top: auto !important;
+    border: 1px solid rgba(135, 237, 255, .75) !important;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #087cf0, #7138e8) !important;
+    color: #fff !important;
+    font: 700 15px/1.2 'Orbitron', sans-serif !important;
+    letter-spacing: .16em;
+    box-shadow: 0 0 18px rgba(31, 160, 255, .3), inset 0 0 18px rgba(255,255,255,.08);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease !important;
+}
+.Play:hover, .Playlvl2:hover, .Playlvl3:hover {
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.15);
+    box-shadow: 0 0 28px rgba(31, 190, 255, .55);
+}
+@media (max-width: 700px) {
+    .Contenedor_Mensaje_Star { width: 94% !important; left: 3% !important; }
+    .Play, .Playlvl2, .Playlvl3 { min-width: 160px; padding: 13px 20px; }
+}
+
+
+/* Pantallas de inicio espaciales: distribución vertical sin textos superpuestos */
+#NIVEL_01 .Contenedor_Mensaje_Star {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2.2vh, 24px);
+    padding: clamp(16px, 3vw, 36px);
+    box-sizing: border-box;
+    overflow: visible;
+}
+#NIVEL_01 .Texo {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+}
+#NIVEL_01 .DificultadInicio {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 24px);
+    margin: 0;
+    flex-wrap: wrap;
+}
+#NIVEL_01 .DificultadInicio img {
+    width: clamp(54px, 8vw, 100px);
+    max-height: 100px;
+    object-fit: contain;
+}
+#NIVEL_01 .DificultadInicio h1 {
+    position: static !important;
+    margin: 0 !important;
+    line-height: 1.4;
+    max-width: 100%;
+}
+#NIVEL_01 .Play {
+    position: relative !important;
+    inset: auto !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+}
+#NIVEL_01 #Contenedor_contador {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+#NIVEL_02 #Dificultad,
+#NIVEL3 #Dificultadlvl3 {
+    align-items: center;
+    gap: clamp(8px, 2vw, 24px);
+}
+#NIVEL_02 #Dificultad h1,
+#NIVEL3 #Dificultadlvl3 h1 {
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    #NIVEL_01 .Contenedor_Mensaje_Star { gap: 12px; padding: 14px; }
+    #NIVEL_01 .DificultadInicio { gap: 8px; }
+    #NIVEL_01 .DificultadInicio img { width: 48px; }
+}
+
+
+/* Ajustes finales: cuenta regresiva centrada y panel de inicio centrado en el tablero. */
+#NIVEL_01 .Start, #NIVEL_02 .Startlvl2, #NIVEL3 .Startlvl3 {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 !important; box-sizing: border-box;
+}
+#NIVEL_01 .Contenedor_Mensaje_Star,
+#NIVEL_02 .Contenedor_Mensaje_Star,
+#NIVEL3 .Contenedor_Mensaje_Star {
+    top: 50% !important; left: 50% !important; right: auto !important; bottom: auto !important;
+    transform: translate(-50%, -50%); width: min(92%, 980px) !important; height: auto !important;
+    min-height: min(64%, 440px); margin: 0 !important;
+}
+#NIVEL_01 #Contenedor_contador,
+#NIVEL_02 #Contenedor_contadorlvl2,
+#NIVEL3 #Contenedor_contadorlvl3 {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    text-align: center !important; pointer-events: none; z-index: 20;
+}
+#NIVEL_01 #RGB, #NIVEL_02 #RGBlvl2, #NIVEL3 #RGBlvl3 {
+    display: block !important; position: static !important;
+    line-height: 1 !important; margin: 0 !important; padding: 0 !important;
+    font-size: clamp(72px, 14vw, 180px) !important; text-align: center !important;
+    color: #e7fbff; text-shadow: 0 0 18px #00c8ff, 0 0 44px #7c3aed;
+}
+
+/* Cuenta regresiva: ocultar elementos del tablero y conservar solo el número. */
+#NIVEL_02.conteo-solo *, #NIVEL3.conteo-solo * { visibility:hidden !important; }
+#NIVEL_02.conteo-solo #Contenedor_contadorlvl2, #NIVEL_02.conteo-solo #Contenedor_contadorlvl2 *,
+#NIVEL3.conteo-solo #Contenedor_contadorlvl3, #NIVEL3.conteo-solo #Contenedor_contadorlvl3 * { visibility:visible !important; }
+#NIVEL_02.conteo-solo #Contenedor_contadorlvl2, #NIVEL3.conteo-solo #Contenedor_contadorlvl3 { position:absolute!important; inset:0!important; z-index:9999!important; }
+
+#NIVEL_01.conteo-solo * { visibility:hidden !important; }
+#NIVEL_01.conteo-solo #Contenedor_contador, #NIVEL_01.conteo-solo #Contenedor_contador * { visibility:visible !important; }
+#NIVEL_01.conteo-solo #Contenedor_contador { position:absolute!important; inset:0!important; z-index:9999!important; display:flex!important; align-items:center!important; justify-content:center!important; }
+
+
+/* Corrección visual: instrucciones del nivel 2 en un único bloque centrado. */
+#NIVEL_02 .Pistalvl2 {
+  left: 50% !important; bottom: 4% !important; transform: translateX(-50%);
+  width: min(92%, 760px) !important; box-sizing: border-box;
+  margin: 0 !important; padding: 16px 22px !important;
+  text-align: center !important; white-space: normal; line-height: 1.8 !important;
+  border: 1px solid rgba(83,220,255,.75); border-radius: 14px;
+  background: rgba(3,12,34,.94); color: #dffaff;
+  text-shadow: 0 0 8px rgba(0,200,255,.45);
+  z-index: 30;
+}
+#NIVEL3 #Creditoslvl3 { z-index: 20; line-height: 1.5 !important; gap: 12px; padding: 24px; box-sizing: border-box; }
+#NIVEL3 #Creditoslvl3 h3, #NIVEL3 #Creditoslvl3 p { line-height: 1.5 !important; margin: 8px 0 !important; }
+#NIVEL3 #Proximolvl3 { z-index: 21; line-height: 1.5 !important; gap: 14px; padding: 20px; box-sizing: border-box; background: rgba(2,8,28,.9); text-align: center; }
+#NIVEL3 #Proximolvl3 h4 { line-height: 1.5 !important; margin: 8px 0 !important; }

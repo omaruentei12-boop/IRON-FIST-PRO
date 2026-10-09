@@ -1,4 +1,3 @@
-
 (function () {
     "use strict";
 
@@ -185,15 +184,6 @@
 
     function iniciar() {
         niveles.forEach(prepararNivel);
-
-        document.addEventListener("keydown", evento => {
-            if (evento.key.toLowerCase() !== "p" || evento.repeat) return;
-            const nivel = niveles.find(jugando);
-            if (nivel) {
-                evento.preventDefault();
-                porId(nivel.pausa).click();
-            }
-        });
 
         document.addEventListener("visibilitychange", () => {
             if (document.hidden) pausarNivelVisible();

@@ -390,10 +390,10 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
             <h1 class="Texo" id="Texo">¿LISTO PARA SALVAR<br> EL MUNDO? -> LVL: 1</h1> <!--Titulo de la seccion start-->
             
 
-            <div style="display: flex; justify-content: center; position: absolute; width: 100%;">
-            <img src="IMG/Pez_Globo.gif" width="18%" id="chems1">
-            <h1 class="Pollo">Dificultad: Pez globo</h1>
-            <img src="IMG/Pez_Globo.gif" width="18%" id="chems2">
+            <div class="DificultadInicio">
+            <img src="IMG/Pez_Globo.gif" id="chems1" alt="Criatura espacial">
+            <h1 class="Pollo">Dificultad: Aluvión</h1>
+            <img src="IMG/Pez_Globo.gif" id="chems2" alt="Criatura espacial">
             </div>
 
             <br> <div class=Play id="Play">JUGAR</div><!--Boton de jugar-->
@@ -460,9 +460,9 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
             <div class="Startlvl2" id="Startlvl2">
             <h1 class="Texolvl2" id="Texolvl2">¿LISTO PARA SALVAR<br> EL MUNDO? -> LVL: 2 </h1>
             <div id="Dificultad">
-                <img src="IMG/Tiburon.gif" width="18%">
-                <h1 style="font-size: 27px; font-family: 'Press Start 2P', cursive;">&nbsp;Dificultad : Tiburon&nbsp;</h1>
-                <img src="IMG/Tiburon.gif" width="18%">
+                <img src="IMG/Fondo_Espacio2.jpg" class="icono-dificultad-espacial" alt="">
+                <h1>&nbsp;Dificultad: Nebulosa&nbsp;</h1>
+                <img src="IMG/Fondo_Espacio2.jpg" class="icono-dificultad-espacial" alt="">
             </div>
             <!--Titulo de la seccion start-->
             <br> <div class=Playlvl2 id="Playlvl2">JUGAR</div><!--Boton de jugar-->
@@ -545,10 +545,9 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
                         <div class=Playlvl3 id="Playlvl3">JUGAR</div>
                         <!--Dificultad-->
                         <div class="Dificultadlvl3" id="Dificultadlvl3">
-                        <img src="IMG/Megalodon.gif" width="16%">
-                        &nbsp;<h1 style="font-size: 27px; font-family: 'Press Start 2P', cursive;">
-                        Dificultad: Megalodon</h1>&nbsp;
-                        <img src="IMG/Megalodon.gif" width="16%">
+                        <img src="IMG/Fondo_Espacio2.jpg" class="icono-dificultad-espacial" alt="">
+                        &nbsp;<h1>Dificultad: Supernova</h1>&nbsp;
+                        <img src="IMG/Fondo_Espacio2.jpg" class="icono-dificultad-espacial" alt="">
                         </div>
                         <!--Span que contiene el conteo-->
                         <div id="Contenedor_contadorlvl3"><span id="RGBlvl3"></span></div>
@@ -993,5 +992,76 @@ preparando con la ayuda del resto de gobiernos, la iniciativa "IRON FIST", que c
 })();
 </script>
 
+
+<style id="ajustes-espaciales-finales">
+/* Pantallas de inicio: elementos en flujo para evitar superposiciones. */
+#NIVEL_02 .Startlvl2, #NIVEL3 .Startlvl3 { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(12px,2vh,22px); padding:clamp(18px,3vw,42px); overflow:auto; }
+#NIVEL_02 .Texolvl2, #NIVEL3 .Textolvl3 { position:relative!important; inset:auto!important; margin:0!important; transform:none!important; line-height:1.35!important; max-width:95%; }
+#NIVEL_02 #Dificultad, #NIVEL3 #Dificultadlvl3 { position:relative!important; top:auto!important; width:100%; display:flex!important; align-items:center; justify-content:center; gap:12px; margin:0!important; transform:none!important; z-index:3; }
+#NIVEL_02 #Dificultad h1, #NIVEL3 #Dificultadlvl3 h1 { margin:0!important; line-height:1.5; font-size:clamp(14px,1.7vw,22px)!important; }
+.icono-dificultad-espacial { width:38px!important; height:38px; object-fit:cover; border-radius:50%; border:1px solid #59e7ff; box-shadow:0 0 14px #1d9fff; }
+#NIVEL_02 .Playlvl2, #NIVEL3 .Playlvl3 { position:relative!important; top:auto!important; margin:0!important; transform:none!important; z-index:4; }
+#NIVEL_02 .Pistalvl2 { position:absolute!important; left:0; bottom:3%!important; width:min(94%,760px)!important; margin:0 auto!important; padding:12px 16px; box-sizing:border-box; z-index:5; line-height:1.8; color:#e8faff; background:rgba(3,12,34,.92); border:1px solid rgba(68,220,255,.65); border-radius:12px; box-shadow:0 0 18px rgba(35,180,255,.22); transform:none!important; text-align:center; }
+#NIVEL_02 #Contenedor_contadorlvl2, #NIVEL3 #Contenedor_contadorlvl3 { inset:0!important; width:100%; height:100%; display:flex!important; align-items:center!important; justify-content:center!important; z-index:20; pointer-events:none; }
+#NIVEL_02 #RGBlvl2, #NIVEL3 #RGBlvl3 { display:block!important; position:static!important; line-height:1!important; }
+#ironfist-opciones-juego { position:fixed; inset:0; z-index:2147483000; display:none; align-items:center; justify-content:center; padding:20px; background:rgba(1,5,20,.88); backdrop-filter:blur(8px); color:#eafaff; font-family:Orbitron,Arial,sans-serif; }
+#ironfist-opciones-juego.visible { display:flex; }
+#ironfist-opciones-juego .panel { width:min(92vw,440px); padding:28px; border:1px solid #3de5ff; border-radius:18px; background:linear-gradient(145deg,#0b1735,#180d35); box-shadow:0 0 32px #137bd066; }
+#ironfist-opciones-juego h2 { margin:0 0 22px; color:#70eaff; text-align:center; }
+#ironfist-opciones-juego label { display:block; margin:18px 0 8px; font-size:13px; }
+#ironfist-opciones-juego input { width:100%; accent-color:#36dfff; }
+#ironfist-opciones-juego .valor { color:#c6a6ff; float:right; }
+#ironfist-opciones-juego button { display:block; margin:24px auto 0; padding:12px 28px; border:1px solid #5deaff; border-radius:10px; background:#102c54; color:white; font-weight:bold; cursor:pointer; }
+#NIVEL3 .Pausa_Pantallalvl3 { position:absolute!important; inset:0!important; z-index:100!important; display:none; align-items:center!important; justify-content:center!important; text-align:center!important; background:rgba(2,8,28,.84)!important; backdrop-filter:blur(5px); }
+#NIVEL3 .Pausa_Pantallalvl3[style*="display: flex"], #NIVEL3 .Pausa_Pantallalvl3[style*="display:flex"] { display:flex!important; }
+#NIVEL3 .Mensaje_Pauselvl3 { margin:0!important; padding:clamp(20px,4vw,48px)!important; max-width:90%!important; box-sizing:border-box!important; color:#8ceeff!important; font-family:Orbitron,Arial,sans-serif!important; font-size:clamp(20px,3vw,36px)!important; line-height:1.6!important; text-shadow:0 0 12px #00cfff,0 0 28px #236dff!important; border:1px solid rgba(91,226,255,.8)!important; border-radius:18px!important; background:linear-gradient(145deg,rgba(5,20,48,.96),rgba(28,10,57,.96))!important; box-shadow:0 0 35px rgba(0,190,255,.32),inset 0 0 24px rgba(82,98,255,.12)!important; }
+</style>
+<script>
+(function(){
+  const overlay=document.createElement('div'); overlay.id='ironfist-opciones-juego';
+  overlay.innerHTML='<div class="panel" role="dialog" aria-modal="true" aria-label="Opciones del juego"><h2>OPCIONES DE MISIÓN</h2><label for="if-vol">Volumen general <span class="valor" id="if-vol-out">70%</span></label><input id="if-vol" type="range" min="0" max="100" value="70"><label for="if-brillo">Brillo <span class="valor" id="if-brillo-out">100%</span></label><input id="if-brillo" type="range" min="40" max="150" step="5" value="100"><button id="if-cerrar" type="button">VOLVER AL JUEGO (ESC)</button></div>';
+  document.body.appendChild(overlay);
+  const audios=()=>Array.from(document.querySelectorAll('audio'));
+  function setVol(v){audios().forEach(a=>a.volume=Number(v)/100);try{localStorage.setItem('ironfist_volumen',String(v))}catch(e){}document.getElementById('if-vol-out').textContent=v+'%';}
+  function setBrillo(v){let capa=document.getElementById('capa-brillo');if(!capa){capa=document.createElement('div');capa.id='capa-brillo';Object.assign(capa.style,{position:'fixed',inset:'0',pointerEvents:'none',zIndex:'1000',background:'#000',transition:'opacity .15s'});document.body.appendChild(capa)}capa.style.opacity=String(Math.max(0,Math.min(.6,(100-Number(v))/100)));try{localStorage.setItem('ironfist_brillo',String(v))}catch(e){}document.getElementById('if-brillo-out').textContent=v+'%';}
+  let vol=Number(localStorage.getItem('ironfist_volumen'));if(!Number.isFinite(vol))vol=70;let bri=Number(localStorage.getItem('ironfist_brillo'));if(!Number.isFinite(bri))bri=100;
+  const vs=document.getElementById('if-vol'),bs=document.getElementById('if-brillo');vs.value=vol;bs.value=bri;setVol(vol);setBrillo(bri);
+  vs.addEventListener('input',()=>setVol(vs.value));bs.addEventListener('input',()=>setBrillo(bs.value));
+  let pausaPorOpciones = null;
+  const visible=(id)=>{const el=document.getElementById(id);return !!(el && el.getClientRects().length>0);};
+  function botonPausaActivo(){
+    if(visible('NIVEL3') && !visible('Startlvl3')) return document.getElementById('Pauselvl3');
+    if(visible('NIVEL_02') && !visible('Startlvl2')) return document.getElementById('Pauselvl2');
+    if(visible('NIVEL_01') && !visible('Start')) return document.getElementById('Pause');
+    return null;
+  }
+  function close(){ overlay.classList.remove('visible'); if(pausaPorOpciones){ pausaPorOpciones.click(); pausaPorOpciones=null; } }
+  document.getElementById('if-cerrar').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      e.preventDefault(); e.stopImmediatePropagation();
+      if(overlay.classList.contains('visible')){close();return;}
+      const btn=botonPausaActivo(); pausaPorOpciones=null;
+      if(btn){
+        const pausado = btn.classList.contains('Pause_En_Pausa') || btn.classList.contains('PausadoLvl3') || (btn.id==='Pauselvl2' && visible('Pausa_Pantallalvl2'));
+        if(!pausado){btn.click(); pausaPorOpciones=btn;}
+      }
+      overlay.classList.add('visible');document.getElementById('if-cerrar').focus(); return;
+    }
+    if((e.key==='p'||e.key==='P') && !e.repeat && !overlay.classList.contains('visible')){
+      const btn=botonPausaActivo();
+      if(btn){
+        const target=e.target; if(target && /INPUT|TEXTAREA|SELECT/.test(target.tagName)) return;
+        e.preventDefault();
+        btn.click();
+      }
+    }
+  }, true);
+})();
+</script>
+
+
+<style>body.opciones-mision-abiertas #NIVEL_01 *, body.opciones-mision-abiertas #NIVEL_02 *, body.opciones-mision-abiertas #NIVEL3 * { animation-play-state: paused !important; } #ironfist-opciones-juego { pointer-events:auto; }</style>
+<script>(function(){const o=document.getElementById("ironfist-opciones-juego");if(!o)return;const obs=new MutationObserver(()=>document.body.classList.toggle("opciones-mision-abiertas",o.classList.contains("visible")));obs.observe(o,{attributes:true,attributeFilter:["class"]});})();</script>
 </body>
 </html>
